@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thourn Panha </title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #000000;
+        color: #333;
+
+    }
+
+    .container {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+
+    }
+
+    .left-panel {
+        background-color: #1f1d1d;
+        color: #fff;
+        width: 35%;
+        
+      
+        text-align: center;
+    }
+
+
+    /* Profile Picture */
+    .profile-pic img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 3px solid #ffffff;
+        margin-bottom: 15px;
+        margin-top: 30px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        margin: 10px 0;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        color: #46f800;
+    }
+
+    /* Section Headings */
+    h3 {
+        font-size: 1.2rem;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #e74c3c;
+        display: inline-block;
+    }
+
+    /* About and Contact */
+    .about p,
+    .contact p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .contact p strong {
+        display: inline-block;
+        width: 80px;
+    }
+
+    /* Skills and Language */
+    ul {
+        list-style: none;
+        padding: 0;
+        font-size: 0.9rem;
+    }
+
+    ul li {
+        margin-bottom: 5px;
+    }
+
+    /* Right Panel */
+    .education ul,
+    .experience ul {
+        padding: 0;
+        list-style-type: disc;
+        margin-left: 20px;
+        font-size: 0.9rem;
+    }
+
+    .education ul li,
+    .experience ul li {
+        margin-bottom: 10px;
+    }
+
+    .education p,
+    .experience p {
+        font-size: 0.9rem;
+        margin: 10px 0;
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 768px) {
+        .cv-container {
+            flex-direction: column;
+        }
+
+        .left-panel,
+        .right-panel {
+            width: 100%;
+        }
+
+        .left-panel {
+            text-align: center;
+        }
+    }
+
+    .contact1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .contact1 a {
+        font-size: 1.5rem;
+        color: #fff;
+        background-color: #7c7778;
+        padding: 10px;
+        border-radius: 50%;
+    }
+
+    .contact1 a:hover {
+        background-color: #aca6a6;
+    }
+
+    .skill {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .skill ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    .skill i {
+        font-size: 1.5rem;
+        color: #fff;
+        background-color: #3f3e3e;
+        padding: 10px;
+        border-radius: 10%;
+    }
+
+    .skill i:hover {
+        background-color: #4b4949;
+    }
+
+    /* Icon hover colors */
+    .fa-html5:hover {
+        background-color: #e34f26;
+        color: rgb(255, 115, 0);
+    }
+
+    .fa-css3-alt:hover {
+        background-color: #264de4;
+        color: #1572b6;
+    }
+
+    .fa-js:hover {
+        background-color: #f0db4f;
+        color: #ffd900;
+    }
+
+    .fa-php:hover {
+        background-color: #8892be;
+        color: #002efd;
+    }
+
+    .fa-wordpress:hover {
+        background-color: #21759b;
+        color: #7e0f0f;
+    }
+
+    .fa-python:hover {
+        background-color: #3776ab;
+        color: #02b7ff;
+    }
+
+    .fa-react:hover {
+        background-color: #61dbfb;
+        color: #0d98d8;
+    }
+
+    .fa-node-js:hover {
+        background-color: #3c873a;
+        color: #0ea309;
+    }
+
+    .fa-github:hover {
+        background-color: #24292e;
+        color: #d61f90;
+    }
+
+    .fa-git:hover {
+        background-color: #f34f29;
+        color: #f34f29;
+    }
+
+    /* Dark mode styles */
+    .dark-mode {
+        background-color: #121212;
+        color: #ccc;
+    }
+
+    .dark-mode .left-panel {
+        background-color: #1e1e1e;
+    }
+
+    .dark-mode .right-panel {
+        background-color: #222;
+    }
+
+    .dark-mode h3 {
+        border-bottom-color: #e74c3c;
+    }
+    .fa-tiktok:hover {
+
+        color: #000000;
+    }
+
+    .fa-facebook:hover {
+
+        color: #4400ff;
+    }
+
+    .fa-youtube:hover {
+
+        color: #ff0000;
+        transition: 0.1s;
+        
+    }
+
+    .fa-telegram:hover {
+
+        color: #2a46c3;
+    }
+    .download {
+        
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .download h1 {
+        text-align: center;
+        color: #fff;
+        font-size: 1.5rem;
+    }
+
+    .download a {
+        text-align: center;
+        color: #fff;
+        font-size: 1.5rem;
+    }
+    .download img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 3px solid #2bbb0e;
+        margin-bottom: 15px;
+    }
+    .download .S2{
+        border: 3px solid #ff0000;
+    }
+.gg img{
+    border: 3px solid #ff0000;
+    
+}
+.gg1 img{
+    border: 3px solid #ff0000;
+}
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.container-movei{
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+}
+.container-movei a{
+    text-align: center;
+        color: #fff;
+        font-size: 3.5rem;
+
+}
+.container-movei i{
+    padding: 30px;
+        
+
+}
+.gbox{
+    color: #0ea309;
+}
+.troll{
+    color: rgb(0, 38, 255);
+    
+}
+.troll1 img{
+    border: 3px solid #454fdf;
+}
+.scarlet{
+    color:red;
+}
+  </style>
+</head>
+<body>
+<div class="container">
+        <div class="left-panel">
+            <div class="profile-pic">
+                <img src="https://i.pinimg.com/736x/23/9c/68/239c685c98ea5053a8df2a8757baa4b9.jpg" alt="Profile Picture">
+            </div>
+            <h1>Thourn Panha</h1>
+            <h2>Web Developer</h2>
+
+            <section class="about">
+                <h3>About Me</h3>
+                <p>Enjoy learning about tech, famous cars, and also the art of repair and maintenance. Interests include taking photos, playing football, and volleyball.</p>
+            </section>
+
+            <section class="contact">
+                <h3>Contact</h3>
+                <div class="contact1">
+                    <a href="https://www.tiktok.com/@nhoy_n?_t=ZS-8tBmMfw9ZiS&_r=1"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://web.ftacebook.com/profile.php?id=100033854716313"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/@Xai-qq"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://t.me/nhoy200"><i class="fa-brands fa-telegram"></i></a>
+                </div>
+            </section>
+
+            <section class="skills">
+                <h3>Skills</h3>
+                <div class="skill">
+                    <ul>
+                        <li><i class="fa-brands fa-html5">HTML</i></li>
+                        <li><i class="fa-brands fa-css3-alt">CSS</i></li>
+                        <li><i class="fa-brands fa-js">JavaScript</i></li>
+                        <li><i class="fa-brands fa-php">PHP</i></li>
+                        <li><i class="fa-brands fa-wordpress">WordPress</i></li>
+                        <li><i class="fa-brands fa-python">Python</i></li>
+                        <li><i class="fa-brands fa-react">React</i></li>
+                        <li><i class="fa-brands fa-node-js">Node.js</i></li>
+                        <li><i class="fa-brands fa-git">Git</i></li>
+                        <li><i class="fa-brands fa-github">GitHub</i></li>
+                        <li><i class="fa-brands fa-docker">Docker</i></li>
+                        <li><i class="fa-brands fa-linux">Linux</i></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="languages">
+                <h3>Language</h3>
+                <ul>
+                    <li>Khmer (Mother Tongue)</li>
+                    <li>English (Speaking, Listening, Writing: Reading Basic Level)</li>
+                </ul>
+            </section>
+            <div class="container-movei">
+                <h1>
+                    MOVEI
+                </h1>
+                <div class="box-movei">
+                    <a href="/movei-v2/index.html"><i class="fa-solid fa-clapperboard"></i></a>
+                    <a href="/esign/index.html"><i class="fa-brands fa-slack"></i></a>
+                </div>
+            </div>
+            -------------------------------------------------------------------------
+            <div class="download">
+                <h1>
+                    download Esign
+                </h1>
+                <a href="https://api.khoindvn.eu.org/0qvzM4">
+                    <img src="https://ipaomtk.com/wp-content/uploads/2023/03/esign-ipa.jpg" alt="">
+                </a>
+                <a href="https://api.khoindvn.eu.org/0qvzM4">
+                    <img src="https://ipaomtk.com/wp-content/uploads/2023/03/esign-ipa.jpg" alt="">
+                </a>
+            </div>
+
+            <div class="download">
+                <h1>
+                    download <span class="scarlet">Scarlet</span>
+                </h1>
+                <div class="box">
+                <div class="gg">
+                <a href="#">
+                    <img src="https://usescarlet.com/icon.png" alt=""><span>SOON</span>
+                </a>
+                </div>
+                <div class="gg1">
+                <a href="#" >
+                    <img src="https://usescarlet.com/icon.png" alt="">
+                </a>
+               </div>
+                </div>
+
+
+                <div class="download">
+                    <h1>
+                        download <span class="gbox">GBOX</span>
+                    </h1>
+                    <div class="box">
+                    <div class="#">
+                    <a href="#">
+                        <img src="https://i.pinimg.com/736x/0b/99/d4/0b99d465ec90abaccc50cebbae351b23.jpg" alt=""><span>SOON</span>
+                    </a>
+                    </div>
+                    <div class="#">
+                    <a href="#" >
+                        <img src="https://i.pinimg.com/736x/0b/99/d4/0b99d465ec90abaccc50cebbae351b23.jpg" alt="">
+                    </a>
+                   </div>
+                    </div>
+                </div>
+
+
+                <div class="download">
+                    <h1>
+                        download <span class="troll">trollstore</span>
+                    </h1>
+                    <div class="box">
+                    <div class="troll1">
+                    <a href="#">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy8_byBXdIb2LwiwXFTHUsa_1GDJhqoJABDw&s" alt=""><span>SOON</span>
+                    </a>
+                    </div>
+                    <div class="troll1">
+                    <a href="#" >
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy8_byBXdIb2LwiwXFTHUsa_1GDJhqoJABDw&s" alt="">
+                    </a>
+                   </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <script src="js/main.js">
+            // Toggle Dark Mode
+document.addEventListener("DOMContentLoaded", () => {
+    const body = document.body;
+    const darkModeToggle = document.createElement("button");
+    darkModeToggle.textContent = "Toggle Dark Mode";
+    darkModeToggle.style.position = "fixed";
+    darkModeToggle.style.bottom = "10px";
+    darkModeToggle.style.right = "10px";
+    darkModeToggle.style.padding = "10px 15px";
+    darkModeToggle.style.backgroundColor = "#333";
+    darkModeToggle.style.color = "#fff";
+    darkModeToggle.style.border = "none";
+    darkModeToggle.style.cursor = "pointer";
+    darkModeToggle.style.borderRadius = "5px";
+
+    darkModeToggle.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+        darkModeToggle.textContent = body.classList.contains("dark-mode") ? "Light Mode" : "Dark Mode";
+    });
+
+    document.body.appendChild(darkModeToggle);
+});
+
+// Animate Social Icons Hover Effect
+const socialIcons = document.querySelectorAll(".contact1 a");
+socialIcons.forEach(icon => {
+    icon.addEventListener("mouseover", () => {
+        icon.style.transform = "scale(1.2)";
+        icon.style.transition = "transform 0.2s";
+    });
+
+    icon.addEventListener("mouseout", () => {
+        icon.style.transform = "scale(1)";
+    });
+});
+
+// Scroll to Sections (if needed)
+document.querySelectorAll(".download a").forEach(anchor => {
+    anchor.addEventListener("click", e => {
+        e.preventDefault();
+        const targetId = anchor.getAttribute("href").slice(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+    });
+});
+
+// Add Download Message for "Soon" Links
+const soonLinks = document.querySelectorAll("a[href='']");
+soonLinks.forEach(link => {
+    link.addEventListener("click", e => {
+        e.preventDefault();
+        alert("This feature will be available soon!");
+    });
+});
+
+        </script>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+</body>
+</html>

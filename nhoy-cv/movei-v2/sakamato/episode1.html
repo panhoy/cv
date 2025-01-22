@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="bb.css">
+  <!-- <link rel="stylesheet" href="bb.css"> -->
+  <title>Movie Detail Page</title>
+</head>
+<style>
+    /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    object-fit: cover;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #1c1c1c;
+    color: #fff;
+    line-height: 1.6;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+  }
+  
+  .navbar .logo a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .menu-toggle {
+    font-size: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .movie-detail {
+    margin: 20px;
+    margin-left: 1px;
+    margin-top: 50px;
+  }
+  
+  .movie-video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .container {
+    padding: 20px;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+  }
+  
+  .season {
+    margin-bottom: 20px;
+  }
+  
+  .season-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .season-number {
+    background-color: gold;
+    color: black;
+    font-weight: bold;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .season-title h2 {
+    margin: 0;
+    font-size: 20px;
+  }
+  
+  .season-title p {
+    margin: 0;
+    color: #13DF0C;
+  }
+  
+  .episode-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  
+  .episode {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    border-radius: 8px;
+    padding: 10px;
+    gap: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .episode:hover {
+    background-color: #444;
+  }
+  
+  .episode img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .episode-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .episode-info h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #FFFFFF;
+  }
+  
+  .episode-info p {
+    margin: 2px 0;
+    color: #ffffff;
+  }
+  
+  .episode-info .date {
+    color: #bbb;
+    font-size: 14px;
+  }
+  
+  </style>
+
+<body>
+  <!-- Header Section -->
+  <header class="navbar">
+    <div class="logo">
+      <a href="/index.html">Movie</a>
+    </div>
+    <button class="menu-toggle">☰</button>
+  </header>
+  <!-- Main Content -->
+  <main>
+    <!-- Movie Video Section -->
+    <section class="movie-detail">
+  <!-- YouTube video iframe -->
+ <iframe 
+    class="youtube-video" 
+    width="106%" 
+    height="300px" 
+    src="https://www.youtube.com/embed/4pSRz0z_w-g?si=NFZr2bSjyZN8mp4D" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+</iframe>
+    </section>
+
+    <!-- Seasons and Episodes -->
+    <section class="episodes">
+      <div class="container">
+        <h1>Seasons and Episodes</h1>
+        <div class="season">
+          <div class="season-header">
+            <div class="season-number">1</div>
+            <div class="season-title">
+              <h2>Season 1</h2>
+              <p>Apr. 02, 2023</p>
+            </div>
+          </div>
+          <div class="episode-list">
+            <!-- Episode 1 -->
+            <a href="episode2.html">
+            <div class="episode">
+              <img src="https://i.pinimg.com/736x/86/29/bf/8629bfc0abb2e33cd10213f0a636c586.jpg" alt="Episode 1 Thumbnail">
+              <div class="episode-info">
+                <h3>episode2</h3>
+                <p>This Is Why I Can't ...</p>
+                <p class="date">Apr. 02, 2023</p>
+              </div>
+            </div>
+            </a>
+            <!-- Episode 2 -->
+             <a href="episode3.html">
+            <div class="episode">
+              <img src="https://i.pinimg.com/736x/86/29/bf/8629bfc0abb2e33cd10213f0a636c586.jpg" alt="Episode 2 Thumbnail">
+              <div class="episode-info">
+                <h3>episode3</h3>
+                <p>It's Almost Time for t...</p>
+                <p class="date">Apr. 09, 2023</p>
+              </div>
+            </div>
+             </a>
+
+             <!--episode 3-->
+             <a href="episode4.html">
+            <div class="episode">
+              <img src="https://i.pinimg.com/736x/86/29/bf/8629bfc0abb2e33cd10213f0a636c586.jpg" alt="Episode 1 Thumbnail">
+              <div class="episode-info">
+                <h3>episode4</h3>
+                <p>This Is Why I Can't ...</p>
+                <p class="date">Apr. 02, 2023</p>
+              </div>
+            </div>
+             </a>
+                         <!-- Episode 4 -->
+             <a href="episode5.html">
+
+            <div class="episode">
+              <img src="https://i.pinimg.com/736x/86/29/bf/8629bfc0abb2e33cd10213f0a636c586.jpg" alt="Episode 2 Thumbnail">
+              <div class="episode-info">
+                <h3>episode5</h3>
+                <p>It's Almost Time for t...</p>
+                <p class="date">Apr. 09, 2023</p>
+              </div>
+            </div>
+          </a>
+          <a href="episode6.html">
+            <div class="episode">
+              <img src="https://i.pinimg.com/736x/86/29/bf/8629bfc0abb2e33cd10213f0a636c586.jpg" alt="Episode 1 Thumbnail">
+              <div class="episode-info">
+                <h3>episode6</h3>
+                <p>This Is Why I Can't ...</p>
+                <p class="date">Apr. 02, 2023</p>
+              </div>
+            </div>
+          </a>
+            <!-- Episode 2 -->
+             <a href="episodefull.html">
+            <div class="episode">
+              <img src="https://i.pinimg.com/736x/86/29/bf/8629bfc0abb2e33cd10213f0a636c586.jpg" alt="Episode 2 Thumbnail">
+              <div class="episode-info">
+                <h3>1-6 full</h3>
+                <p>It's Almost Time for t...</p>
+                <p class="date">Apr. 09, 2023</p>
+              </div>
+            </div>
+          </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js">
+    // Menu toggle functionality
+const menuToggle = document.querySelector('.menu-toggle');
+
+menuToggle.addEventListener('click', () => {
+  alert('Menu toggle clicked!');
+});
+
+// Add interactivity for episodes (optional)
+document.querySelectorAll('.episode').forEach((episode) => {
+  episode.addEventListener('click', () => {
+    alert(`You clicked on ${episode.querySelector('h3').innerText}`);
+  });
+});
+  </script>
+</body>
+</html>

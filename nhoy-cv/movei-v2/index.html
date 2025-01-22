@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="/css/style.css"> -->
+  <title>Movies anime</title>
+  <style>
+    /* Global Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #FFFFFF;
+}
+
+/* Navbar Styles */
+.navbar {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #353232;
+  padding: 10px 20px;
+}
+
+.navbar .logo {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  margin: 0 15px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 30px;
+  transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: #ff0000;
+}
+
+/* Container Styles */
+.container {
+  width: 90%;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Featured Movie */
+.featured-movie img {
+  width: 100%;
+  max-width: 600px;
+  display: block;
+  margin: 0 auto 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Movie Grid */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.movie-card img {
+  width: 90%;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+.movie-card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+  </style>
+<body>
+  <nav class="navbar">
+    <a href="/index.html" class="logo">Movies</a>
+    <ul>
+      <li><a href="#about">☰</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2 class="section-title">Featured Movie</h2>
+    <div class="featured-movie">
+      <a href="#">
+        <img src="https://i.pinimg.com/736x/ec/36/e2/ec36e2a469feb96657c2c87085d7a92f.jpg" alt="Featured Movie">
+      </a>
+    </div>
+
+    <h2 class="section-title">New Movies</h2>
+    <div class="movie-grid">
+      <div class="movie-card">
+        <a href="seson.html">
+          <img src="https://i.pinimg.com/474x/86/29/bf/8629bfc0abb2e33cd10213f0a636c586.jpg" alt="Movie 1">
+        </a>
+      </div>
+      <div class="movie-card">
+        <a href="#">
+          <img src="https://i.pinimg.com/474x/c3/7f/2a/c37f2aa4a23a8096dddb8609b4a92a6f.jpg" alt="Movie 2">
+        </a>
+      </div>
+      <div class="movie-card">
+        <a href="#">
+          <img src="https://i.pinimg.com/236x/ad/08/30/ad08302276fb39966aee4b6e0390fdab.jpg" alt="Movie 3">
+        </a>
+      </div>
+      <div class="movie-card">
+        <a href="#">
+          <img src="https://i.pinimg.com/736x/e7/24/84/e724848d8161de85b571e6f8dc651c19.jpg" alt="Movie 4">
+        </a>
+      </div>
+        <div class="movie-card">
+    <a href="">
+      <img src="https://i.pinimg.com/736x/f8/a9/a6/f8a9a65c3d869583595f27d74fe30c93.jpg" alt="Movie 1">
+    </a>
+  </div>
+  <div class="movie-card">
+    <a href="#">
+      <img src="https://i.pinimg.com/736x/44/90/2f/44902fa2ba6c23073373cfac4ed62cba.jpg" alt="Movie 2">
+    </a>
+  </div>
+  <div class="movie-card">
+    <a href="#">
+      <img src="https://i.pinimg.com/736x/80/b4/d6/80b4d67cb9ca21dc8dbb3a0c0e42956d.jpg" alt="Movie 3">
+    </a>
+  </div>
+  <div class="movie-card">
+    <a href="#">
+      <img src="https://i.pinimg.com/736x/b2/87/6e/b2876efdeba6f73d90e2e804e2b5036a.jpg" alt="Movie 4">
+    </a>
+  </div>
+        <div class="movie-card">
+        <a href="">
+          <img src="https://i.pinimg.com/736x/d5/a7/fd/d5a7fde77df55f3e305b118fb6089892.jpg" alt="Movie 1">
+        </a>
+      </div>
+      <div class="movie-card">
+        <a href="">
+          <img src="https://i.pinimg.com/736x/21/d3/ff/21d3ff0304fc4e5cb22b980f5af7412d.jpg" alt="movie 2">
+        </a>
+      </div>
+      <div class="movie-card">
+        <a href="">
+          <img src="https://i.pinimg.com/236x/ea/55/e2/ea55e2060362af30868b8eb492c7bced.jpg" alt="Movie 1">
+        </a>
+      </div>
+      <div class="movie-card">
+        <a href="">
+          <img src="https://i.pinimg.com/236x/46/9f/07/469f07f5100c92deb0a60a62eb26b3aa.jpg" alt="movie 2">
+        </a>
+      </div>
+      <div class="movie-card">
+        <a href="">
+          <img src="https://i.pinimg.com/236x/26/2e/ad/262ead1c8722967d22e5e60f24068dff.jpg" alt="Movie 1">
+        </a>
+      </div>
+      <div class="movie-card">
+        <a href="">
+          <img src="https://i.pinimg.com/236x/11/a7/e4/11a7e484636c75f534e3067d0e4af6aa.jpg" alt="movie 2">
+        </a>
+      </div>
+  </div>
+  <div class="featured-movie">
+  <a href="#">
+    <img src="https://i.pinimg.com/736x/cc/af/1a/ccaf1aa7913eaf8b51b3587112b92263.jpg" alt="Featured Movie">
+  </a>
+</div>
+<div class="movie-grid">
+  <div class="movie-card">
+    <a href="seson.html">
+      <img src="https://i.pinimg.com/236x/eb/2e/04/eb2e04353e0b8a3d3b7cea896f748081.jpg" alt="Movie 1">
+    </a>
+  </div>
+  <div class="movie-card">
+    <a href="#">
+      <img src="https://i.pinimg.com/236x/33/89/92/33899204d273b184153e83ff087ef232.jpg" alt="Movie 2">
+    </a>
+  </div>
+  <div class="movie-card">
+    <a href="#">
+      <img src="https://i.pinimg.com/236x/33/e8/46/33e846f6244162d123f8b5622c6ac8b7.jpg" alt="Movie 3">
+    </a>
+  </div>
+  <div class="movie-card">
+    <a href="#">
+      <img src="https://i.pinimg.com/236x/69/9a/37/699a37b00ffea627700130c2a162dfc3.jpg" alt="Movie 4">
+    </a>
+  </div>
+    <div class="movie-card">
+<a href="">
+  <img src="https://i.pinimg.com/236x/99/ef/83/99ef837028463d4f940b63c2b288222b.jpg" alt="Movie 1">
+</a>
+</div>
+<div class="movie-card">
+<a href="#">
+  <img src="https://i.pinimg.com/236x/61/3f/23/613f2396de6c5bbb82c5fee450f1faf9.jpg" alt="Movie 2">
+</a>
+</div>
+<div class="movie-card">
+<a href="#">
+  <img src="https://i.pinimg.com/236x/b9/ef/0a/b9ef0ae3b860fd287e907491fddd560c.jpg" alt="Movie 3">
+</a>
+</div>
+<div class="movie-card">
+<a href="#">
+  <img src="https://i.pinimg.com/474x/0f/00/2a/0f002aa734c62067c3c566a8792625a4.jpg" alt="Movie 4">
+</a>
+</div>
+    <div class="movie-card">
+    <a href="">
+      <img src="https://i.pinimg.com/236x/82/90/06/829006f7d871f3039e4ded4e902d19a0.jpg" alt="Movie 1">
+    </a>
+  </div>
+  <div class="movie-card">
+    <a href="#">
+      <img src="https://i.pinimg.com/236x/b7/36/3b/b7363bb9c17d12935ab73850cb3d87ec.jpg" alt="Movie 2">
+    </a>
+  </div>
+  <div class="movie-card">
+    <a href="">
+      <img src="https://i.pinimg.com/236x/89/3c/27/893c274d7ce4fb7420f4563ca5f1963c.jpg" alt="Movie 1">
+    </a>
+  </div>
+  <div class="movie-card">
+    <a href="#">
+      <img src="https://i.pinimg.com/474x/84/b6/26/84b62633bbfa6c082d8e11c91f06fca4.jpg" alt="Movie 2">
+    </a>
+  </div>
+  <div class="movie-card">
+    <a href="">
+      <img src="https://i.pinimg.com/474x/b8/5c/3b/b85c3bc005fee0b952c8829720015ed7.jpg" alt="Movie 1">
+    </a>
+  </div>
+  <div class="movie-card">
+    <a href="#">
+      <img src="https://i.pinimg.com/236x/21/e9/8b/21e98b36f79823ac3dcd05c96dfce180.jpg" alt="Movie 2">
+    </a>
+  </div>
+</div>
+  </div>
+  <script src="main.main.js"></script>
+</body>
+</html>
