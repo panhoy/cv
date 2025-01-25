@@ -1,61 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modern Download Button</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background: #000000;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GBox Premium Offer</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e0f7fa, #ffffff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-    .download-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 20px;
-      font-size: 16px;
-      font-weight: 600;
-      color: #fff;
-      text-decoration: none;
-      background: linear-gradient(90deg, #00ff15, #d10092);
-      border: none;
-      border-radius: 50px;
-      box-shadow: 0 4px 6px rgba(151, 149, 149, 0.534);
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
-    }
+        .card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 360px;
+            padding: 24px;
+        }
 
-    .download-btn:hover {
-      background: linear-gradient(90deg, #00d10a, #007bff);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-    }
+        .card img {
+            width: 60px;
+            margin-bottom: 20px;
+        }
 
-    .download-btn:active {
-      transform: translateY(0);
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    }
+        .card h1 {
+            font-size: 22px;
+            margin: 0;
+            color: #333;
+        }
 
-    .download-btn svg {
-      width: 20px;
-      height: 20px;
-    }
-  </style>
+        .card h2 {
+            font-size: 28px;
+            color: #00796b;
+            margin: 16px 0;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .card ul li {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            color: #555;
+            font-size: 16px;
+        }
+
+        .card ul li::before {
+            content: "\2713";
+            color: #00796b;
+            margin-right: 12px;
+            font-weight: bold;
+        }
+
+        .card button {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .card button:hover {
+            background-color: #004d40;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #aaa;
+        }
+    </style>
 </head>
 <body>
-  <a href="https://ipa.ipasign.cc:2052/download/d40ecc59-976a-0424-2de1-7b3928ca207a/20250125020600489" class="download-btn" download>
-    <svg xmlns="https://api.khoindvn.eu.org/0qvzM4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V3" />
-    </svg>
-    Download
-  </a>
+
+<div class="card">
+    <img src="" alt="GBox Logo">
+    <h1>Premium Package</h1>
+    <h2>$2 / 1 months</h2>
+    <ul>
+        <li>Registered 1 Device</li>
+        <li>Revoke Protection</li>
+        <li>Sign From An External Link</li>
+        <li>Tweaked Apps</li>
+        <li>Hacked Games</li>
+        <li>Free Paid Apps & Games</li>
+        <li>Get UDID</li>
+    </ul>
+    <button id="premiumButton">Get Premium</button>
+    <footer>Secure and trusted by thousands of users worldwide.</footer>
+</div>
+
+<script>
+    document.getElementById("premiumButton").addEventListener("click", function() {
+        alert("Congratulations! You have successfully upgraded to the GBox Premium package.");
+        window.location.href = "/buy/buy.html";
+    });
+</script>
+
 </body>
 </html>
