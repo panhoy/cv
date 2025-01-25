@@ -8,33 +8,31 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(rgba(72, 73, 72, 0.5), rgb(70, 11, 65)), url(https://i.pinimg.com/736x/50/ed/05/50ed050fd3a26bd86a4ccc0e39b22b0f.jpg);
-      color: #000000;
+      background: linear-gradient(rgba(72, 73, 72, 0.5), rgb(70, 11, 65)), 
+                  url('https://i.pinimg.com/736x/50/ed/05/50ed050fd3a26bd86a4ccc0e39b22b0f.jpg');
+      color: #000;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       background-size: cover;
-
+      background-position: center;
     }
 
     .unlock-container {
       text-align: center;
-      background-image: url();
+      background: rgba(255, 255, 255, 0.9);
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      
+      width: 300px;
     }
 
     h2 {
       margin-bottom: 10px;
     }
 
-    .subscribe-btn {
+    .subscribe-btn, .telegram-btn {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -46,16 +44,25 @@
       border-radius: 5px;
       cursor: pointer;
       text-decoration: none;
+      margin: 10px 0;
       transition: background-color 0.3s;
     }
 
-    .subscribe-btn img {
+    .telegram-btn {
+      background-color: #0084ff;
+    }
+
+    .subscribe-btn img, .telegram-btn img {
       height: 20px;
       margin-right: 10px;
     }
 
     .subscribe-btn:hover {
       background-color: #cc0000;
+    }
+
+    .telegram-btn:hover {
+      background-color: #0073e6;
     }
 
     .progress-bar {
@@ -65,6 +72,7 @@
       height: 10px;
       border-radius: 5px;
       overflow: hidden;
+      position: relative;
     }
 
     .progress {
@@ -94,56 +102,72 @@
 <body>
   <div class="unlock-container">
     <h2>Unlock Link</h2>
-    <p>Complete the actions and unlock the link</p>
-    <a href="https://youtube.com/@xai-qq?si=fhMk_zGHAerZtpSQ" target="_blank" id="subscribeButton" class="subscribe-btn">
-      <img src="https://img.icons8.com/color/48/youtube-play.png" alt="YouTube"> Subscribe On YouTube
+    <p>Complete both actions to unlock the link</p>
+    <a href="#" class="subscribe-btn" id="youtubeButton">
+      <img src="https://img.icons8.com/color/48/youtube-play.png" alt="YouTube">
+      Subscribe On YouTube
     </a>
-    <div class="progress-bar">
+    <a href="#" class="telegram-btn" id="telegramButton">
+      <img src="https://img.icons8.com/color/48/telegram-app.png" alt="Telegram">
+      Join On Telegram
+    </a>
+    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
       <div id="progress" class="progress"></div>
     </div>
     <button id="unlockButton" class="unlock-btn" disabled>Unlock Link</button>
   </div>
 
   <script>
-        const subscribeButton = document.getElementById('subscribeButton');
-        const unlockButton = document.getElementById('unlockButton');
-        const progressBar = document.getElementById('progress');
-      
-        // Event listener for the "Subscribe On YouTube" button
-        subscribeButton.addEventListener('click', function (event) {
-          // Prevent default action to avoid instant redirect when simulating
-          event.preventDefault();
-      
-          // Simulate a delay to represent subscribing action
-          let progress = 0;
-          const interval = setInterval(() => {
-            progress += 2;
-            progressBar.style.width = progress + '%'; // Corrected line
-      
-            if (progress >= 100) {
-              clearInterval(interval);
-      
-              // Enable the unlock button once progress is complete
-              unlockButton.disabled = false;
-              unlockButton.classList.add('enabled');
-              unlockButton.textContent = 'admin';
-            }
-          }, 100); // Update progress every 100ms
-      
-          // Open the YouTube channel in a new tab
-          window.open('https://youtube.com/@xai-qq?si=fhMk_zGHAerZtpSQ');
-        });
-      
-        // Event listener for the "Unlock Link" button
-        unlockButton.addEventListener('click', function () {
-          if (!this.disabled) {
-            // Action when link is unlocked
-            alert('admin : nha');
+    const youtubeButton = document.getElementById('youtubeButton');
+    const telegramButton = document.getElementById('telegramButton');
+    const unlockButton = document.getElementById('unlockButton');
+    const progressBar = document.getElementById('progress');
 
-            window.location.href = 'https://nhoy_11.t.me/'; // Replace with your desired URL
+    let isYouTubeClicked = false;
+    let isTelegramClicked = false;
+
+    // Event listener for the YouTube button
+    youtubeButton.addEventListener('click', function (event) {
+      event.preventDefault();
+      isYouTubeClicked = true;
+      window.open('https://youtube.com/@xai-qq?si=fhMk_zGHAerZtpSQ', '_blank');
+      checkProgress();
+    });
+
+    // Event listener for the Telegram button
+    telegramButton.addEventListener('click', function (event) {
+      event.preventDefault();
+      isTelegramClicked = true;
+      window.open('https://t.me/nhoy200', '_blank');
+      checkProgress();
+    });
+
+    // Function to check if both actions are completed
+    function checkProgress() {
+      if (isYouTubeClicked && isTelegramClicked) {
+        let progress = 0;
+        const interval = setInterval(() => {
+          progress += 2;
+          progressBar.style.width = progress + '%';
+          progressBar.setAttribute('aria-valuenow', progress);
+
+          if (progress >= 100) {
+            clearInterval(interval);
+            unlockButton.disabled = false;
+            unlockButton.classList.add('enabled');
+            unlockButton.textContent = 'Unlock Link';
           }
-        });
-      
+        }, 100);
+      }
+    }
+
+    // Event listener for the Unlock button
+    unlockButton.addEventListener('click', function () {
+      if (!this.disabled) {
+        alert('Link Unlocked!');
+        window.location.href = 'https://ipa.ipasign.cc:2052/download/d40ecc59-976a-0424-2de1-7b3928ca207a/20250125020600489'; // Replace with your desired URL
+      }
+    });
   </script>
 </body>
 </html>
