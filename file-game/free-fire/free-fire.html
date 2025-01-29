@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Photo Grid</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #e3e0e6;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #000;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .menu ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    .menu li {
+      cursor: pointer;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      padding: 5px 10px;
+      transition: color 0.3s;
+    }
+
+    .menu a:hover {
+      color: #007BFF;
+    }
+
+    /* Photo Grid */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .photo-item {
+      text-align: center;
+      border: 1px solid #000;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: #fff;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .photo-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .photo-item img {
+      width: 80%;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-top: 10px;
+    }
+
+    .photo-item h3 {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #0cd316;
+    }
+
+    .photo-item button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .photo-item button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #f4f4f4;
+      border-top: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    footer nav a {
+      margin: 0 10px;
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    footer nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+  </style>
+  <script>
+    function buyItem(itemName) {
+      alert(`${itemName} is not available yet! Stay tuned.`);
+    }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="/photo/logo-removebg-preview.png" alt="Logo">
+      <span>My Store</span>
+    </div>
+    <nav class="menu">
+      <ul>
+        <li><a href="/contact.html"><i class="fa-solid fa-bars"></i></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="photo-grid">
+
+      <div class="photo-item">
+        <img src="/photo/free.png" alt="APP IPA">
+        <h3>MODE IOS 15 UP</h3>
+        <a href="/IPA/free-fire-ipa/free-fire.ipa" download>
+          <button> DOWNLOAD </button>
+        </a>
+      </div>
+      <div class="photo-item">
+        <img src="/photo/free.png" alt="Sing IPA">
+        <h3>MODE IOS 18</h3>
+        <a href="/key/youtube.htmlX">
+          <button>SOON</button>
+        </a>
+      </div>
+      <div class="photo-item">
+        <img src="/photo/free.png" alt="Free Fire Hack">
+        <h3>MODE ANDROID</h3>
+        <a href="/key/gbox.html">
+          <button>SOON</button>
+        </a>
+      </div>
+      <div class="photo-item">
+        <img src="/photo/free.png" alt="App">
+        <h3>MODE PC</h3>
+        <a href="/key/key1.html">
+          <button>SOON</button>
+        </a>
+      </div>
+      <div class="photo-item">
+        <img src="/photo/free.png" alt="Game Hack">
+        <h3>HHH</h3>
+        <a href="/IPA/Filza.ipa" download >
+          <button>SOON</button>
+        </a>
+      </div>
+      <div class="photo-item">
+        <img src="https://i.pinimg.com/736x/82/55/03/8255033248d018b6c5f3d460b2deec16.jpg" alt="Mobile Hack">
+        <h3>Mobile Hack</h3>
+        <button onclick="buyItem('Mobile Hack')">SOON</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 BUY MHOY.STORE</p>
+    <nav>
+      <a href="/privacy.html">Privacy</a> |
+      <a href="/terms.html">Terms</a> |
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </footer>
+</body>
+</html>
