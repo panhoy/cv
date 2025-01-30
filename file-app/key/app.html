@@ -139,7 +139,7 @@
     telegramButton.addEventListener('click', function (event) {
       event.preventDefault();
       isTelegramClicked = true;
-      window.open('https://t.me/nhoy200', '_blank');
+      window.open('https://t.me/onlinera_store', '_blank');
       checkProgress();
     });
 
@@ -148,7 +148,7 @@
       if (isYouTubeClicked && isTelegramClicked) {
         let progress = 0;
         const interval = setInterval(() => {
-          progress += 2;
+          progress += 5;
           progressBar.style.width = progress + '%';
           progressBar.setAttribute('aria-valuenow', progress);
 
@@ -156,7 +156,7 @@
             clearInterval(interval);
             unlockButton.disabled = false;
             unlockButton.classList.add('enabled');
-            unlockButton.textContent = 'free 1day';
+            unlockButton.textContent = 'download';
           }
         }, 100);
       }
@@ -166,7 +166,7 @@
     unlockButton.addEventListener('click', function () {
       if (!this.disabled) {
         alert('free 1day key download 😉');
-        window.location.href = '/file-app/file-app.html'; /// Replace with your desired URL
+        window.location.href = 'https://t.me/nhoy200'; /// Replace with your desired URL
       }
     });
   </script>
