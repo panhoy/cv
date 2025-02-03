@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Listing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            background: #020202;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #444;
+            font-size: 24px;
+            margin-bottom: 15px;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        .app-section, .esign-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .app-container {
+            background: #ffffff83;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 220px;
+            transition: transform 0.3s ease-in-out;
+            animation: fadeInUp 0.8s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-container:hover {
+            transform: scale(1.05);
+            animation: pulseEffect 1s infinite;
+        }
+
+        .app-container img {
+            max-width: 100%;
+            border-radius: 10px;
+            height: 120px;
+            object-fit: cover;
+            animation: bounceIn 1s;
+        }
+
+        .app-container h1 {
+            font-size: 18px;
+            margin: 10px 0 5px;
+            color: #000000;
+        }
+
+        .app-container p {
+            font-size: 14px;
+            color: #000000;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: #007aff;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 10px;
+            font-size: 14px;
+            transition: background 0.3s, transform 0.3s;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .download-btn:hover {
+            background: #0d0f11;
+            transform: translateY(2px);
+        }
+
+        @keyframes pulseEffect {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(5px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .app-container {
+            animation: slideIn 1s ease-in-out;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .app-container {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .app-container {
+                width: 100%;
+                max-width: 200px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Apps</h2>
+        <div class="app-section"></div>
+        <h2>ESign</h2>
+        <div class="esign-section"></div>
+    </div>
+
+    <script>
+        // Sample Data for Apps and ESign items
+        const apps = [
+            { name: 'App 1', url: '/esign-free/keyfree/key1.html', img: '/photo/esign.jpg', description: 'App 1 FREEEEE' },
+            { name: 'App 2', url: '/esign-free/keyfree/key2.html', img: '/photo/esign.jpg', description: 'App 2 FREEEEE' },
+            { name: 'App 3', url: '/esign-free/keyfree/key3.html', img: '/photo/esign.jpg', description: 'App 3 FREEEEE' },
+            { name: 'App 4', url: '/esign-free/keyfree/key4.html', img: '/photo/esign.jpg', description: 'App 4 FREEEEE' },
+            { name: 'App 5', url: '/esign-free/keyfree/key5.html', img: '/photo/esign.jpg', description: 'App 5 FREEEEE' },
+            { name: 'App 6', url: '/esign-free/keyfree/key6.html', img: '/photo/esign.jpg', description: 'App 6 FREEEEE' },
+            { name: 'App 7', url: '/esign-free/keyfree/key7.html', img: '/photo/esign.jpg', description: 'App 7 FREEEEE' },
+            { name: 'App 8', url: '/esign-free/keyfree/key8.html', img: '/photo/esign.jpg', description: 'App 8 FREEEEE' },
+            { name: 'App 9', url: '/esign-free/keyfree/key9.html', img: '/photo/esign.jpg', description: 'App 9 FREEEEE' },
+        ];
+
+
+
+        // Function to dynamically render content for each section
+        function renderSection(sectionClass, data) {
+            const section = document.querySelector(sectionClass);
+            section.innerHTML = ''; // Clear section before rendering new content
+
+            data.forEach(item => {
+                const div = document.createElement('div');
+                div.classList.add('app-container', 'animate__animated', 'animate__fadeInUp');
+                div.innerHTML = `
+                    <img src="${item.img}" alt="${item.name}">
+                    <h1>${item.name}</h1>
+                    <p>${item.description}</p>
+                    <a href="${item.url}" class="download-btn">Download</a>
+                `;
+                section.appendChild(div);
+            });
+        }
+
+        // Call the renderSection function for both App and ESign sections
+        renderSection('.app-section', apps);
+        renderSection('.esign-section', esigns);
+    </script>
+</body>
+</html>
