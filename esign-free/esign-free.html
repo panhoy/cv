@@ -6,9 +6,12 @@
     <title>App Listing</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #ffffff;
+            font-family: 'VT323', monospace;
+            background-color: #000;
+            color: #00ff00;
             margin: 0;
             padding: 20px;
             display: flex;
@@ -16,143 +19,156 @@
             align-items: center;
             min-height: 100vh;
         }
-
+        
         .container {
             max-width: 900px;
-            background: #020202;
+            background: rgba(0, 0, 0, 0.95);
             padding: 20px;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px #00ff00;
             animation: fadeIn 1s ease-in-out;
             width: 100%;
         }
-
+        
         h2 {
             text-align: center;
-            color: #444;
-            font-size: 24px;
+            color: #00ff00;
+            font-size: 28px;
             margin-bottom: 15px;
-            animation: fadeInDown 1s ease-in-out;
+            text-shadow: 0 0 10px #00ff00;
+            animation: flicker 1.5s infinite alternate;
         }
-
+        
         .app-section, .esign-section {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 55px;
             justify-content: center;
         }
-
+        
         .app-container {
-            background: #ffffff83;
+            background: rgba(0, 0, 0, 0.9);
             padding: 15px;
             border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px #00ff00;
             text-align: center;
             width: 220px;
-            transition: transform 0.3s ease-in-out;
-            animation: fadeInUp 0.8s ease-in-out;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s;
             position: relative;
             overflow: hidden;
+            border: 2px solid #00ff00;
+            animation: glitch 1.5s infinite alternate;
         }
-
+        
         .app-container:hover {
-            transform: scale(1.05);
-            animation: pulseEffect 1s infinite;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #00ff00;
         }
-
+        
         .app-container img {
             max-width: 100%;
             border-radius: 10px;
             height: 120px;
             object-fit: cover;
-            animation: bounceIn 1s;
+            filter: brightness(0.7) contrast(1.2);
         }
-
+        
         .app-container h1 {
-            font-size: 18px;
+            font-size: 20px;
             margin: 10px 0 5px;
-            color: #000000;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
         }
-
+        
         .app-container p {
             font-size: 14px;
-            color: #000000;
+            color: #00ff00;
+            opacity: 0.9;
         }
-
+        
         .download-btn {
             display: inline-block;
-            background: #007aff;
-            color: #fff;
-            padding: 8px 12px;
+            background: transparent;
+            color: #00ff00;
+            padding: 10px 15px;
+            border: 2px solid #00ff00;
             border-radius: 6px;
             text-decoration: none;
             margin-top: 10px;
             font-size: 14px;
             transition: background 0.3s, transform 0.3s;
-            animation: fadeIn 1s ease-in-out;
+            text-shadow: 0 0 5px #00ff00;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
-
+        
         .download-btn:hover {
-            background: #0d0f11;
-            transform: translateY(2px);
+            background: #00ff0086;
+            color: #000;
+            transform: translateY(3px);
+            box-shadow: 0 0 15px #00ff00;
         }
-
-        @keyframes pulseEffect {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.1);
-            }
-
-            100% {
-                transform: scale(1);
-            }
+        
+        /* Flickering Neon Effect */
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
         }
-
-        @keyframes slideIn {
-            from {
-                transform: translateY(5px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+        
+        /* Glitch Effect */
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px #00ff00, -2px -2px #00ff00; }
+            50% { text-shadow: -2px -2px #00ff00, 2px 2px #00ff00; }
+            100% { text-shadow: 2px -2px #00ff00, -2px 2px #00ff00; }
         }
-
-        .app-container {
-            animation: slideIn 1s ease-in-out;
+        
+        /* Matrix Rain Effect */
+        @keyframes matrix {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100%; }
         }
-
-        /* Media Queries for Responsiveness */
+        
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://media.giphy.com/media/l3fQh4k004zDy7o9S/giphy.gif');
+            opacity: 0.1;
+            z-index: -1;
+            animation: matrix 10s linear infinite;
+        }
+        
+        /* Media Queries for Mobile */
         @media (max-width: 768px) {
             .app-container {
                 width: 100%;
                 max-width: 300px;
             }
-
+        
             .container {
                 padding: 10px;
             }
-
+        
             h2 {
                 font-size: 22px;
             }
         }
-
+        
         @media (max-width: 480px) {
             .app-container {
                 width: 100%;
                 max-width: 200px;
             }
-
+        
             h2 {
                 font-size: 20px;
             }
         }
+        
     </style>
 </head>
 <body>

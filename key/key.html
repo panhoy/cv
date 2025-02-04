@@ -5,98 +5,179 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Unlock Link</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(rgba(72, 73, 72, 0.5), rgb(70, 11, 65)), 
-                  url('https://i.pinimg.com/736x/50/ed/05/50ed050fd3a26bd86a4ccc0e39b22b0f.jpg');
-      color: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-size: cover;
-      background-position: center;
-    }
+  /* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    .unlock-container {
-      text-align: center;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      width: 300px;
-    }
+body {
+  font-family: 'Courier New', monospace; /* Monospaced font for hacker vibes */
+  background-color: #111;
+  color: #00FF00; /* Neon green text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+}
 
-    h2 {
-      margin-bottom: 10px;
-    }
+/* Container Styling */
+.unlock-container {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.8); /* Dark background for the container */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+  width: 350px;
+  border: 2px solid #00FF00;
+}
 
-    .subscribe-btn, .telegram-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #00a2ff;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      text-decoration: none;
-      margin: 10px 0;
-      transition: background-color 0.3s;
-    }
+h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #00FF00;
+  text-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+}
 
-    .telegram-btn {
-      background-color: #0084ff;
-    }
+/* Text Paragraph */
+p {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
 
-    .subscribe-btn img, .telegram-btn img {
-      height: 20px;
-      margin-right: 10px;
-    }
+/* Links (Buttons) */
+a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #00FF00;
+  color: #000;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 10px 0;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+}
 
-    .subscribe-btn:hover {
-      background-color: hsl(0, 115, 230);
-    }
+a:hover {
+  background-color: #ff0000;
+  color: #fff;
+  transform: scale(1.05);
+}
 
-    .telegram-btn:hover {
-      background-color: rgb(0, 115, 230);
-    }
+/* Buttons with Icons */
+.subscribe-btn, .telegram-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Courier New', monospace;
+}
 
-    .progress-bar {
-      margin: 15px 0;
-      background-color: #4b4747;
-      width: 100%;
-      height: 10px;
-      border-radius: 5px;
-      overflow: hidden;
-      position: relative;
-    }
+.subscribe-btn img, .telegram-btn img {
+  height: 20px;
+  margin-right: 10px;
+}
 
-    .progress {
-      width: 0%;
-      height: 100%;
-      background-color: #4caf50;
-      transition: width 0.5s;
-    }
+.subscribe-btn:hover, .telegram-btn:hover {
+  transform: scale(1.1);
+}
 
-    .unlock-btn {
-      background-color: #555;
-      color: #aaa;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: not-allowed;
-    }
+/* Progress Bar */
+.progress-bar {
+  margin: 15px 0;
+  background-color: #222;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
 
-    .unlock-btn.enabled {
-      background-color: #4caf50;
-      color: #fff;
-      cursor: pointer;
-    }
+.progress {
+  width: 0%;
+  height: 100%;
+  background-color: #4CAF50;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Unlock Button */
+.unlock-btn {
+  padding: 10px 20px;
+  background-color: #555;
+  color: #aaa;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: not-allowed;
+  font-family: 'Courier New', monospace;
+  margin-top: 20px;
+}
+
+.unlock-btn.enabled {
+  background-color: #00FF00;
+  color: #000;
+  cursor: pointer;
+}
+
+/* Glitch Effect */
+.glitch {
+  position: relative;
+  display: inline-block;
+  color: #00FF00;
+  font-size: 2rem;
+}
+
+.glitch::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: red;
+  text-shadow: 0 0 5px red, 0 0 10px red, 0 0 15px red;
+  clip-path: inset(0 0 0 0);
+  animation: glitch-anim 0.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    clip-path: inset(10% 0 5% 0);
+  }
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+  .unlock-container {
+    width: 80%;
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .subscribe-btn, .telegram-btn {
+    font-size: 14px;
+  }
+}
+
   </style>
 </head>
 <body>
