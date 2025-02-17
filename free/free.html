@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-    <title>NHOY</title>
+    <title>RAK</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         /* General Styles */
@@ -23,14 +22,13 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
-            background-color: #000000;
+            background-color: #212a35;
             color: white;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(17, 17, 17, 0.5);
         }
 
         .header .logo img {
@@ -76,16 +74,6 @@
             justify-content: space-around;
             background-color: white;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin-top: 5px;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        .logo img {
-            width: 200%;
-            height: 200%;
-            border-radius: 50%;
         }
 
         .navbar a {
@@ -160,7 +148,7 @@
             justify-content: space-around;
             align-items: center;
             padding: 10px 0;
-            background-color: #000000;
+            background-color: #212a35;
             color: white;
             position: fixed;
             bottom: 0;
@@ -179,51 +167,38 @@
             color: #007bff;
         }
 
+        /* Media Queries */
         @media screen and (min-width: 500px) and (max-width: 1231px) {
-            /* Adjust search bar width for medium screens */
-            .header1 .search-bar input {
-                width: 80%; /* Adjust to fit better within the screen width */
-            }
-        
-            /* Adjust app grid for medium screens */
             .app-grid {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* Slightly smaller cards */
-                gap: 15px; /* Reduce gap to save space */
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* Smaller cards */
+                gap: 15px;
             }
-        
-            /* Adjust app card styling for medium screens */
+
             .app-card img {
-                width: 70px; /* Slightly smaller icons */
+                width: 70px;
                 height: 70px;
             }
-        
+
             .app-title {
-                font-size: 14px; /* Slightly smaller text */
-            }
-        
-            .app-button {
-                font-size: 13px; /* Adjust button size */
-                padding: 6px 10px; /* Adjust padding */
-            }
-        
-            /* Navigation bar links */
-            .navbar a {
-                padding: 8px; /* Smaller padding for medium screens */
                 font-size: 14px;
             }
-        
-            /* Bottom navigation icons */
+
+            .app-button {
+                font-size: 13px;
+                padding: 6px 10px;
+            }
+
+            .navbar a {
+                padding: 8px;
+                font-size: 14px;
+            }
+
             .bottom-nav a {
-                font-size: 20px; /* Slightly smaller icons */
+                font-size: 20px;
             }
         }
-        
 
         @media screen and (max-width: 780px) {
-            .header1 .search-bar input {
-                width: calc(100% - 50px);
-            }
-
             .app-grid {
                 grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             }
@@ -241,9 +216,6 @@
                 font-size: 12px;
             }
         }
-        .bottom-nav i:hover{
-            transform: translateY(-2px);
-        }
     </style>
 </head>
 <body>
@@ -253,11 +225,11 @@
         <div class="logo">
             <img src="/photo/logo1.jpg" alt="Logo">
         </div>
-
         <div class="menu-icon">
             <i class="fa-solid fa-bars"></i>
         </div>
     </div>
+
     <div class="header1">
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="Search for apps...">
@@ -267,76 +239,56 @@
 
     <!-- Navigation Bar -->
     <div class="navbar">
-        <a href="#" class="active">APP STORE</a>
-        <a href="free/free.html">FREE</a>
-        <a href="/gane-store/game-sotre.html">GAME APP </a>
+        <a href="/index.html">APP STORE</a>
+        <a href="free/free.html" class="active">FREE</a>
+        <a href="/gane-store/game-sotre.html">GAME APP</a>
     </div>
 
     <!-- App Grid -->
-     
     <div class="app-grid" id="appGrid"></div>
+
     <!-- Bottom Navigation -->
     <div class="bottom-nav">
         <a href="#"><i class="fa-solid fa-gamepad"></i></a>
-        <a href="#"><i class="fa-brands fa-app-store-ios"></i></a>
+        <a href="/gane-store/game-sotre.html"><i class="fa-brands fa-app-store-ios"></i></a>
         <a href="/index.html"><i class="fa-solid fa-house"></i></a>
         <a href="#"><i class="fa-solid fa-shop"></i></a>
-        <a href="/contact/contact.html"><i class="fa-solid fa-user"></i></a>
+        <a href="#"><i class="fa-solid fa-user"></i></a>
     </div>
+
     <script>
-        // Sample app data
         const apps = [
-        { name: "Esign", img: "https://ipaomtk.com/wp-content/uploads/2023/03/esign-ipa.jpg", button: "BUY", link: "https://nhoy_11.t.me/" },
-        { name: "Gbox", img: "https://i.pinimg.com/474x/0b/99/d4/0b99d465ec90abaccc50cebbae351b23.jpg", button: "BUY", link: "https://nhoy_11.t.me/" },
-        { name: "Scarlet", img: "https://usescarlet.com/icon.png", button: "BUY", link: "https://nhoy_11.t.me/" },
-        { name: "SEEYOUIOS", img: "https://www.sachcharak.com/see%20u.JPEG", button: "BUY", link: "https://nhoy_11.t.me/" },
-        { name: "Trollstore", img: "/photo/troll.jpg", button: "BUY", link: "https://nhoy_11.t.me/" },
-        { name: "feather", img: "/photo/fet.jpg", button: "BUY", link: "https://nhoy_11.t.me/" },
-        { name: "", img: "", button: "soon", link: "https://nhoy_11.t.me/" },
-        { name: "", img: "", button: "soon", link: "https://nhoy_11.t.me/" },
-        { name: "", img: "", button: "soon", link: "https://nhoy_11.t.me/" },
-    ];
-    
-    // Function to render apps
-    function renderApps(appList) {
+            { name: "Esign free", img: "https://ipaomtk.com/wp-content/uploads/2023/03/esign-ipa.jpg", button: "Free sign" }
+        ];
+
         const appGrid = document.getElementById("appGrid");
-        appGrid.innerHTML = ""; // Clear existing content
-        appList.forEach(app => {
-            const appCard = document.createElement("div");
-            appCard.classList.add("app-card");
-            appCard.innerHTML = `
-                <img src="${app.img}" alt="${app.name}">
-                <div class="app-title">${app.name}</div>
-                <a href="${app.link}" class="app-button" target="_blank">${app.button}</a>
+        apps.forEach(app => {
+            appGrid.innerHTML += `
+                <div class="app-card" data-name="${app.name}">
+                    <img src="${app.img}" alt="${app.name}">
+                    <div class="app-title">${app.name}</div>
+                    <a href="/free/esign-free.html" class="app-button">${app.button}</a>
+                </div>
             `;
-            appGrid.appendChild(appCard);
         });
-    }
-    
-    // Function to handle search
-    function searchApps() {
-        const searchInput = document.getElementById("searchInput").value.toLowerCase();
-        const filteredApps = apps.filter(app => app.name.toLowerCase().includes(searchInput));
-        renderApps(filteredApps);
-    }
-    
-    // Function to clear search input and reset app grid
-    function clearSearch() {
-        document.getElementById("searchInput").value = "";
-        renderApps(apps);
-    }
-    
-    // Initialize app grid on page load
-    document.addEventListener("DOMContentLoaded", () => {
-        renderApps(apps);
-    
-        // Add event listener for search input
-        document.getElementById("searchInput").addEventListener("input", searchApps);
-    
-        // Add event listener for clearing search
-        document.getElementById("searchInput").addEventListener("dblclick", clearSearch);
-    });
-    
+
+        let debounceTimer;
+        const searchInput = document.getElementById("searchInput");
+
+        function searchApps() {
+            const query = searchInput.value.toLowerCase();
+            const appCards = document.querySelectorAll(".app-card");
+            appCards.forEach(card => {
+                const appName = card.getAttribute("data-name").toLowerCase();
+                card.style.display = appName.includes(query) ? "block" : "none";
+            });
+        }
+
+        searchInput.addEventListener("input", () => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(searchApps, 300);
+        });
     </script>
-    <body>
+
+</body>
 </html>
