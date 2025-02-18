@@ -1,342 +1,379 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thourn Panha - Hacker Style</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #000000;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
 
-    <title>NHOY</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        /* General Styles */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
+    /* Left Panel */
+    .left-panel {
+      background-color: #000000;
+      color: #ffffff;
+      width: 92%;
+      text-align: center;
+      padding: 10px;
+      border: 2px solid #292c29;
+      box-shadow: 0 0 20px rgba(17, 0, 255, 0.8);
+      position: relative;
+      overflow: hidden;
+    }
 
-        /* Header */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #000000;
-            color: white;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(17, 17, 17, 0.5);
-        }
+    .profile-pic img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid #ffffff;;
+      margin-bottom: 15px;
+      box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
 
-        .header .logo img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
+    h1 {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      color: #00ff00;
+      text-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+      margin-bottom: 20px;
+    }
 
-        .header1 .search-bar {
-            display: flex;
-            align-items: center;
-            margin: 70px 20px 0;
-        }
+    h2 {
+      font-size: 1.6rem;
+      color: #ff0000;
+      margin-bottom: 25px;
+      font-weight: bold;
+    }
 
-        .header1 .search-bar input {
-            padding: 8px;
-            border: none;
-            border-radius: 4px 0 0 4px;
-            outline: none;
-            width: 300px;
-            transition: width 0.3s ease;
-        }
+    h3 {
+      font-size: 1.4rem;
+      color: #ff0037;
+      border-bottom: 2px solid #ffffff;;
+      display: inline-block;
+      margin-top: 20px;
+    }
 
-        .header1 .search-bar button {
-            padding: 8px 12px;
-            border: none;
-            border-radius: 0 4px 4px 0;
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+    .about p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: #0400ff;
+      text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
 
-        .header .menu-icon {
-            font-size: 24px;
-            cursor: pointer;
-        }
+    .contact1 a {
+      font-size: 2rem;
+      color: #000000;
+      background-color: #ffffff;
+      padding: 10px;
+      border-radius: 50%;
+      transition: background-color 0.3s, transform 0.3s;
+    }
 
-        /* Navigation Bar */
-        .navbar {
-            margin-top: 60px;
-            display: flex;
-            justify-content: space-around;
-            background-color: white;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin-top: 5px;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        .logo img {
-            width: 200%;
-            height: 200%;
-            border-radius: 50%;
-        }
+    .contact1 a:hover {
+      background-color: #ff0000;
+      transform: scale(1.1);
+      text-shadow: 0 0 15px rgba(255, 0, 85, 0.7);
+    }
 
-        .navbar a {
-            text-decoration: none;
-            color: #555;
-            font-weight: bold;
-            padding: 10px;
-            transition: color 0.3s;
-        }
+    /* Skills Section */
+    .skills {
+      margin-top: 40px;
+    }
 
-        .navbar a:hover, .navbar a.active {
-            color: #007bff;
-        }
+    .skills h3 {
+      font-size: 1.8rem;
+      color: #00ff00;
+      text-align: center;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgb(255, 0, 0);
+    }
 
-        /* App Grid */
-        .app-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            margin-top: 20px;
-        }
+    .skill-icons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 50px;
+      text-align: center;
+      height: auto;
+    }
 
-        /* App Card */
-        .app-card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 15px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    .skill-item {
+      width: 100px;
+      background-color: #000000;
+      padding: 20px;
+      border-radius: 10px;
+      transition: transform 0.3s, background-color 0.3s;
+      box-shadow: 0 0 15px rgb(255, 255, 255);
+      cursor: pointer;
+      margin-left: 10px;
+    }
 
-        .app-card img {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
+    .skill-item:hover {
+      transform: scale(1.1);
+      background-color: #fffb00;;
+      box-shadow: 0 0 20px rgb(255, 255, 255);
+    }
 
-        .app-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
+    .skill-item i {
+      font-size: 3rem;
+      color: #01e8f0;
+      transition: color 0.3s;
+    }
 
-        .app-title {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #333;
-        }
+    .skill-item p {
+      color: #ffffff;
+      font-size: 1.2rem;
+      margin-top: 10px;
+      text-transform: uppercase;
+    }
 
-        .app-button {
-            display: inline-block;
-            padding: 8px 14px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 14px;
-            transition: background-color 0.3s ease;
-        }
+    .skill-item:hover i {
+      color: #000;
+    }
 
-        .app-button:hover {
-            background-color: #0056b3;
-        }
+    .skill-item:hover p {
+      color: #000;
+    }
 
-        /* Bottom Navigation */
-        .bottom-nav {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 10px 0;
-            background-color: #000000;
-            color: white;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-        }
+    /* Projects Section */
+    .projects {
+      margin-top: 40px;
+    }
 
-        .bottom-nav a {
-            color: white;
-            font-size: 22px;
-            transition: color 0.3s;
-        }
+    .projects h3 {
+      font-size: 2rem;
+      color: #00ff00;
+      text-align: center;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px rgb(255, 6, 6);
+      text-transform: uppercase;
+      font-weight: bold;
+    }
 
-        .bottom-nav a:hover {
-            color: #007bff;
-        }
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 0 20px;
+    }
 
-        @media screen and (min-width: 500px) and (max-width: 1231px) {
-            /* Adjust search bar width for medium screens */
-            .header1 .search-bar input {
-                width: 80%; /* Adjust to fit better within the screen width */
-            }
-        
-            /* Adjust app grid for medium screens */
-            .app-grid {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* Slightly smaller cards */
-                gap: 15px; /* Reduce gap to save space */
-            }
-        
-            /* Adjust app card styling for medium screens */
-            .app-card img {
-                width: 70px; /* Slightly smaller icons */
-                height: 70px;
-            }
-        
-            .app-title {
-                font-size: 14px; /* Slightly smaller text */
-            }
-        
-            .app-button {
-                font-size: 13px; /* Adjust button size */
-                padding: 6px 10px; /* Adjust padding */
-            }
-        
-            /* Navigation bar links */
-            .navbar a {
-                padding: 8px; /* Smaller padding for medium screens */
-                font-size: 14px;
-            }
-        
-            /* Bottom navigation icons */
-            .bottom-nav a {
-                font-size: 20px; /* Slightly smaller icons */
-            }
-        }
-        
+    .project-item {
+      background-color: #000000;
+      color: #3bfd00;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgb(255, 0, 0);
+      transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+    }
 
-        @media screen and (max-width: 780px) {
-            .header1 .search-bar input {
-                width: calc(100% - 50px);
-            }
+    .project-item:hover {
+      background-color: #525252;
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px rgb(255, 255, 255);
+    }
 
-            .app-grid {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            }
+    .project-item h4 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
 
-            .app-card img {
-                width: 60px;
-                height: 60px;
-            }
+    .project-item p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
 
-            .app-title {
-                font-size: 14px;
-            }
+    .project-item .project-links a {
+      display: inline-block;
+      color: #ff0000;
+      font-size: 1.3rem;
+      text-decoration: none;
+      margin-top: 15px;
+      transition: color 0.3s, transform 0.3s;
+    }
 
-            .app-button {
-                font-size: 12px;
-            }
-        }
-        .bottom-nav i:hover{
-            transform: translateY(-2px);
-        }
-    </style>
+    .project-item .project-links a:hover {
+      color: #000;
+      transform: scale(1.1);
+    }
+    .project-item img {
+      max-width: 100%;
+      border-radius: 10px;
+      height: 120px;
+      object-fit: cover;
+      filter: brightness(0.7) contrast(1.2);
+    }
+
+    /* Dark Mode Styles */
+    body.dark-mode {
+      background-color: #222;
+      color: #00ff00;
+    }
+
+    body.dark-mode .left-panel {
+      background-color: #ffffff;
+      color: #00ff00;
+      border-color: #00ff00;;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 1);
+    }
+
+    body.dark-mode .projects .project-item {
+      background-color: #333;
+    }
+
+    /* Animations */
+    @keyframes typing {
+      0% { width: 0; }
+      100% { width: 100%; }
+    }
+
+    .typing-effect {
+      font-size: 1.2rem;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #00ff00;;
+      animation: typing 4s steps(30) 1s 1 normal both;
+    }
+
+  </style>
 </head>
 <body>
+  <div class="container">
+    <div class="left-panel">
+      <div class="profile-pic">
+        <img src="https://i.pinimg.com/236x/b7/c3/8b/b7c38b18e5f2edaea79265b99e8814bf.jpg" alt="Profile Picture">
+      </div>
+      <h1>Thourn Panha</h1>
+      <h2>Web Developer</h2>
 
-    <!-- Header -->
-    <div class="header">
-        <div class="logo">
-            <img src="/photo/logo1.jpg" alt="Logo">
+      <section class="about">
+        <h3>About Me</h3>
+        <p class="typing-effect">I'm passionate about technology, cyber security, and web development. <br> I enjoy coding, solving problems, and staying up-to-date with the latest trends.</p>
+      </section>
+
+      <section class="contact">
+        <h3>Contact</h3>
+        <div class="contact1">
+          <a href="https://www.tiktok.com/@nhoy_n?_t=ZS-8tBmMfw9ZiS&_r=1" ><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.facebook.com/share/164UR4BokF/?mibextid=wwXIfr" ><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.youtube.com/@Xai-qq" ><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://nhoy_11.t.me/" ><i class="fa-brands fa-telegram"></i></a>
         </div>
+      </section>
 
-        <div class="menu-icon">
-            <i class="fa-solid fa-bars"></i>
+      <section class="skills">
+        <h3>Skills</h3>
+        <div class="skill-icons">
+          <div class="skill-item">
+            <i class="fa-brands fa-html5"></i>
+            <p>HTML</p>
+          </div>
+          <div class="skill-item">
+            <i class="fa-brands fa-css3-alt"></i>
+            <p>CSS</p>
+          </div>
+          <div class="skill-item">
+            <i class="fa-brands fa-js"></i>
+            <p>JavaScript</p>
+          </div>
+          <div class="skill-item">
+            <i class="fa-brands fa-python"></i>
+            <p>Python</p>
+          </div>
+          <div class="skill-item">
+            <i class="fa-brands fa-linux"></i>
+            <p>Linux</p>
+          </div>
+          <div class="skill-item">
+            <i class="fa-brands fa-git"></i>
+            <p>Git</p>
+          </div>
+          <div class="skill-item">
+            <i class="fa-brands fa-docker"></i>
+            <p>Docker</p>
+          </div>
+          <div class="skill-item">
+            <i class="fa-brands fa-node-js"></i>
+            <p>Node.js</p>
+          </div>
+          <div class="skill-item">
+            <i class="fa-brands fa-react"></i>
+            <p>React</p>
+          </div>
+          <div class="skill-item">
+            <i class="fa-brands fa-keycdn"></i>
+            <p>Pen Testing</p>
+          </div>
+          <div class="skill-item">
+            <i class="fa-brands fa-wpexplorer"></i>
+            <p>WPE</p>
+          </div>
+          <div class="skill-item">
+            <i class="fa-brands fa-figma"></i>
+            <p>Figma</p>
+          </div>
         </div>
-    </div>
-    <div class="header1">
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Search for apps...">
-            <button onclick="searchApps()"><i class="fa fa-search"></i></button>
+      </section>
+
+      <!-- Projects Section -->
+      <section class="projects">
+        <h3>Projects</h3>
+        <div class="projects-container">
+          <div class="project-item">
+            <h4>APP Esing</h4>
+            <img src="/photo/esign.jpg" alt="">
+            <div class="project-links">
+              <a href="/file-game/file-game.html" >CLICK👈🏻</a>
+            </div>
+          </div>
+          <div class="project-item">
+            <h4>Esing FREE</h4>
+            <img src="/photo/esign.jpg" alt="">
+            <div class="project-links">
+              <a href="/esign-free/esign-free.html" >CLICK👈🏻</a>
+            </div>
+          </div>
+          <div class="project-item">
+            <h4>Real-Time Chat App</h4>
+            <img src="/photo/esign.jpg" alt="">
+            <div class="project-links">
+              <a href="" >CLICK👈🏻</a>
+            </div>
+          </div>
         </div>
-    </div>
+      </section>
 
-    <!-- Navigation Bar -->
-    <div class="navbar">
-        <a href="#" class="active">APP STORE</a>
-        <a href="free/free.html">FREE</a>
-        <a href="/gane-store/game-sotre.html">GAME APP </a>
+      <section class="languages">
+        <h3>Languages</h3>
+        <ul>
+          <li>Khmer (Native)</li>
+          <li>English (Intermediate)</li>
+        </ul>
+      </section>
     </div>
+  </div>
 
-    <!-- App Grid -->
-     
-    <div class="app-grid" id="appGrid"></div>
-    <!-- Bottom Navigation -->
-    <div class="bottom-nav">
-        <a href="#"><i class="fa-solid fa-gamepad"></i></a>
-        <a href="#"><i class="fa-brands fa-app-store-ios"></i></a>
-        <a href="/index.html"><i class="fa-solid fa-house"></i></a>
-        <a href="#"><i class="fa-solid fa-shop"></i></a>
-        <a href="/contact/contact.html"><i class="fa-solid fa-user"></i></a>
-    </div>
-    <script>
-        // Sample app data
-        const apps = [
-        { name: "Esign", img: "https://ipaomtk.com/wp-content/uploads/2023/03/esign-ipa.jpg", button: "BUY", link: "https://nhoy_11.t.me/" },
-        { name: "Gbox", img: "https://i.pinimg.com/474x/0b/99/d4/0b99d465ec90abaccc50cebbae351b23.jpg", button: "BUY", link: "https://nhoy_11.t.me/" },
-        { name: "Scarlet", img: "https://usescarlet.com/icon.png", button: "BUY", link: "https://nhoy_11.t.me/" },
-        { name: "SEEYOUIOS", img: "https://www.sachcharak.com/see%20u.JPEG", button: "BUY", link: "https://nhoy_11.t.me/" },
-        { name: "Trollstore", img: "/photo/troll.jpg", button: "BUY", link: "https://nhoy_11.t.me/" },
-        { name: "feather", img: "/photo/fet.jpg", button: "BUY", link: "https://nhoy_11.t.me/" },
-        { name: "", img: "", button: "soon", link: "https://nhoy_11.t.me/" },
-        { name: "", img: "", button: "soon", link: "https://nhoy_11.t.me/" },
-        { name: "", img: "", button: "soon", link: "https://nhoy_11.t.me/" },
-    ];
-    
-    // Function to render apps
-    function renderApps(appList) {
-        const appGrid = document.getElementById("appGrid");
-        appGrid.innerHTML = ""; // Clear existing content
-        appList.forEach(app => {
-            const appCard = document.createElement("div");
-            appCard.classList.add("app-card");
-            appCard.innerHTML = `
-                <img src="${app.img}" alt="${app.name}">
-                <div class="app-title">${app.name}</div>
-                <a href="${app.link}" class="app-button" target="_blank">${app.button}</a>
-            `;
-            appGrid.appendChild(appCard);
-        });
-    }
-    
-    // Function to handle search
-    function searchApps() {
-        const searchInput = document.getElementById("searchInput").value.toLowerCase();
-        const filteredApps = apps.filter(app => app.name.toLowerCase().includes(searchInput));
-        renderApps(filteredApps);
-    }
-    
-    // Function to clear search input and reset app grid
-    function clearSearch() {
-        document.getElementById("searchInput").value = "";
-        renderApps(apps);
-    }
-    
-    // Initialize app grid on page load
+  <button class="dark-mode-toggle">Toggle Dark Mode</button>
+
+  <script>
+    // Dark Mode Toggle Functionality
     document.addEventListener("DOMContentLoaded", () => {
-        renderApps(apps);
-    
-        // Add event listener for search input
-        document.getElementById("searchInput").addEventListener("input", searchApps);
-    
-        // Add event listener for clearing search
-        document.getElementById("searchInput").addEventListener("dblclick", clearSearch);
+      const body = document.body;
+      const darkModeToggle = document.querySelector(".dark-mode-toggle");
+
+      darkModeToggle.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+        darkModeToggle.textContent = body.classList.contains("dark-mode") ? "Light Mode" : "Dark Mode";
+      });
     });
-    
-    </script>
-    <body>
+  </script>
+</body>
 </html>
