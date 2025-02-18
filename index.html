@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,8 +35,9 @@
       width: 120px;
       height: 120px;
       border-radius: 50%;
-      border: 3px solid #ffffff;;
-      margin-bottom: 15px;
+      border: 3px solid #ffffff;
+      ;
+      margin-bottom: -10px;
       box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
     }
 
@@ -57,7 +59,8 @@
     h3 {
       font-size: 1.4rem;
       color: #ff0037;
-      border-bottom: 2px solid #ffffff;;
+      border-bottom: 2px solid #ffffff;
+      ;
       display: inline-block;
       margin-top: 20px;
     }
@@ -118,7 +121,8 @@
 
     .skill-item:hover {
       transform: scale(1.1);
-      background-color: #fffb00;;
+      background-color: #fffb00;
+      ;
       box-shadow: 0 0 20px rgb(255, 255, 255);
     }
 
@@ -204,6 +208,7 @@
       color: #000;
       transform: scale(1.1);
     }
+
     .project-item img {
       max-width: 100%;
       border-radius: 10px;
@@ -221,7 +226,8 @@
     body.dark-mode .left-panel {
       background-color: #ffffff;
       color: #00ff00;
-      border-color: #00ff00;;
+      border-color: #00ff00;
+      ;
       box-shadow: 0 0 20px rgba(0, 255, 0, 1);
     }
 
@@ -231,41 +237,63 @@
 
     /* Animations */
     @keyframes typing {
-      0% { width: 0; }
-      100% { width: 100%; }
+      0% {
+        width: 0;
+      }
+
+      100% {
+        width: 100%;
+      }
     }
 
     .typing-effect {
       font-size: 1.2rem;
       overflow: hidden;
       white-space: nowrap;
-      border-right: 2px solid #00ff00;;
+      border-right: 2px solid #00ff00;
+      ;
       animation: typing 4s steps(30) 1s 1 normal both;
     }
 
+    .kres {
+      position: absolute;
+      top: 153px;
+      left: 350px;
+    }
+
+    img {
+      width: 50PX;
+      height: 50PX;
+      border-radius: 10px;
+      object-fit: cover;
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="left-panel">
       <div class="profile-pic">
         <img src="/photo/logo11.jpg" alt="Profile Picture">
       </div>
-      <h1>Thourn Panha</h1>
+      <h1>Nhoy</h1>
       <h2>Web Developer</h2>
-
+      <div class="kres">
+        <img src="/photo/jjj.png" alt="">
+      </div>
       <section class="about">
         <h3>About Me</h3>
-        <p class="typing-effect">I'm passionate about technology, cyber security, and web development. <br> I enjoy coding, solving problems, and staying up-to-date with the latest trends.</p>
+        <p class="typing-effect">I'm passionate about technology, cyber security, and web development. <br> I enjoy
+          coding, solving problems, and staying up-to-date with the latest trends.</p>
       </section>
 
       <section class="contact">
         <h3>Contact</h3>
         <div class="contact1">
-          <a href="https://www.tiktok.com/@nhoy_n?_t=ZS-8tBmMfw9ZiS&_r=1" ><i class="fa-brands fa-tiktok"></i></a>
-          <a href="https://www.facebook.com/share/164UR4BokF/?mibextid=wwXIfr" ><i class="fa-brands fa-facebook"></i></a>
-          <a href="https://www.youtube.com/@Xai-qq" ><i class="fa-brands fa-youtube"></i></a>
-          <a href="https://nhoy_11.t.me/" ><i class="fa-brands fa-telegram"></i></a>
+          <a href="https://www.tiktok.com/@nhoy_n?_t=ZS-8tBmMfw9ZiS&_r=1"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://www.facebook.com/share/164UR4BokF/?mibextid=wwXIfr"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.youtube.com/@Xai-qq"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://nhoy_11.t.me/"><i class="fa-brands fa-telegram"></i></a>
         </div>
       </section>
 
@@ -331,21 +359,21 @@
             <h4>APP Esing</h4>
             <img src="/photo/esign.jpg" alt="">
             <div class="project-links">
-              <a href="/file-game/file-game.html" >CLICK👈🏻</a>
+              <a href="/file-game/file-game.html">CLICK👈🏻</a>
             </div>
           </div>
           <div class="project-item">
             <h4>Esing FREE</h4>
             <img src="/photo/esign.jpg" alt="">
             <div class="project-links">
-              <a href="/esign-free/esign-free.html" >CLICK👈🏻</a>
+              <a href="/esign-free/esign-free.html">CLICK👈🏻</a>
             </div>
           </div>
           <div class="project-item">
             <h4>Real-Time Chat App</h4>
             <img src="/photo/esign.jpg" alt="">
             <div class="project-links">
-              <a href="" >CLICK👈🏻</a>
+              <a href="">CLICK👈🏻</a>
             </div>
           </div>
         </div>
@@ -376,4 +404,5 @@
     });
   </script>
 </body>
+
 </html>
