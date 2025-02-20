@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="TrollStore Installation">
+    <meta property="og:description" content="Install iOS applications without restrictions using TrollStore.">
+    <meta property="og:image" content="/path/to/your/image.jpg">
+    <meta property="og:url" content="https://yourwebsite.com">
+
+    <title>TrollStore Installation</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1d4ed8;
+            --accent-color: #4ade80;
+            --text-light: #f8fafc;
+            --text-dark: #1e293b;
+            --bg-dark: #0f172a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 100px;
+            text-align: center;
+            background: linear-gradient(to bottom, var(--bg-dark), #1e293b);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero-img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(120deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Version Badges */
+        .versions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .version-badge {
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .version-badge:hover {
+            transform: translateY(-2px);
+            background: rgba(37, 99, 235, 0.2);
+        }
+
+        /* Download Section */
+        .download-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 500px;
+            margin: 2rem auto;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .telegram-btn, .download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 12px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin: 1rem 0;
+        }
+
+        .telegram-btn {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .download-btn {
+            background: var(--accent-color);
+            color: var(--text-dark);
+        }
+
+        .telegram-btn svg, .download-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .telegram-btn:hover, .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .download-btn:disabled {
+            background: #64748b;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 9999px;
+            height: 6px;
+            margin: 1.5rem 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: var(--bg-dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 500px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 1.5rem;
+            top: 1.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #94a3b8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .description {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .download-section {
+                margin: 2rem 1rem;
+            }
+        }
+
+        .progress-bar {
+            transition: width 0.3s ease-out;
+        }
+        /* YouTube Button Styles */
+.yutube-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 12px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin: 1rem 0;
+    background: #ff0000; /* YouTube Red Color */
+    color: white;
+}
+
+.yutube-btn svg, .yutube-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.yutube-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* If button is clicked or disabled */
+.yutube-btn:active {
+    transform: translateY(0);
+}
+
+.yutube-btn:disabled {
+    background: #ff5555;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <img src="/photo/photo_2025-02-21_01-44-10.jpg" alt="TrollStore" class="logo">
+            <div class="menu-toggle">☰</div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>TrollStore </h1>
+            <h3>Abut</h3>
+            <p class="description">
+                TrollStore ជា​ឧបករណ៍​ដែលអាចដំឡើងកម្មវិធី iOS ដោយ​មិន​ចាំបាច់ Jailbreak។  
+                វាប្រើរបៀប​ដំណើរការ​ពិសេសដើម្បីផ្តល់​ឱ្យអ្នកនូវកម្មវិធីដែលបានចងជាអចិន្ត្រៃយ៍។ iOS 14.0 - 17.0
+            </p>
+
+            <div class="versions">
+                <span class="version-badge">iOS 14</span>
+                <span class="version-badge">iOS 15</span>
+                <span class="version-badge">iOS 16</span>
+                <span class="version-badge">iOS 17</span>
+            </div>
+
+            <!-- Download Section -->
+            <div class="download-section">
+                <h2>Download </h2>
+                <p>join Channel telegram and chennel youtube</p>
+                <a href="#" class="telegram-btn" id="telegramBtn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Telegram_logo_2022.svg" alt="Telegram Channel" style="width: 20px; height: 20px;">
+                    <span> Channel Telegram </span>
+                </a>
+
+                <a href="#" class="yutube-btn" id="secondTelegramBtn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube Channel" style="width: 20px; height: 20px;">
+                    <span> Channel YouTube</span>
+                </a>
+
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+
+                <button class="download-btn" id="downloadBtn" disabled>
+                    Download Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const config = {
+            telegramLink: 'https://t.me/nhoy200',
+            youtubeLink: 'https://youtube.com/@xai-qq?si=uPsNoogH7OaNU__O',
+            downloadLink: '/photo/nhoy.zip'
+        };
+
+        // Get elements
+        const telegramBtn = document.getElementById('telegramBtn');
+        const secondTelegramBtn = document.getElementById('secondTelegramBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const progressBar = document.getElementById('progressBar');
+
+        // State to track completion
+        const state = {
+            telegram1: false,
+            telegram2: false,
+        };
+
+        // Update progress bar based on state
+        function updateProgress() {
+            const totalSteps = Object.keys(state).length;
+            const completedSteps = Object.values(state).filter(Boolean).length;
+            const progress = (completedSteps / totalSteps) * 100;
+            progressBar.style.width = `${progress}%`;
+
+            // Enable download button when both steps are completed
+            if (completedSteps === totalSteps) {
+                downloadBtn.disabled = false;
+            } else {
+                downloadBtn.disabled = true;
+            }
+        }
+
+        // Event handlers
+        telegramBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open(config.telegramLink, '_blank');
+            state.telegram1 = true;
+            telegramBtn.style.opacity = '0.7';
+            updateProgress();
+        });
+
+        secondTelegramBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open(config.youtubeLink, '_blank'); // Open YouTube link
+            state.telegram2 = true;
+            secondTelegramBtn.style.opacity = '0.7';
+            updateProgress();
+        });
+
+        downloadBtn.addEventListener('click', () => {
+            if (Object.values(state).every(Boolean)) {
+                window.location.href = config.downloadLink;
+            }
+        });
+
+        // Initialize progress
+        updateProgress();
+    </script>
+</body>
+</html>
