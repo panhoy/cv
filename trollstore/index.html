@@ -7,7 +7,7 @@
     <meta property="og:description" content="Install iOS applications without restrictions using TrollStore.">
     <meta property="og:image" content="/path/to/your/image.jpg">
     <meta property="og:url" content="https://yourwebsite.com">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>TrollStore Installation</title>
     <style>
         /* Base Styles */
@@ -287,7 +287,15 @@
     transform: none;
     box-shadow: none;
 }
+.troll{
+    color: #1eff00;
+    font-size: 20px;
+}
 
+.ios{
+    color: #3cff00;
+    font-size: 20px;
+}
     </style>
 </head>
 <body>
@@ -303,8 +311,7 @@
             <h1>TrollStore </h1>
             <h3>Abut</h3>
             <p class="description">
-                TrollStore ជា​ឧបករណ៍​ដែលអាចដំឡើងកម្មវិធី iOS ដោយ​មិន​ចាំបាច់ Jailbreak។  
-                វាប្រើរបៀប​ដំណើរការ​ពិសេសដើម្បីផ្តល់​ឱ្យអ្នកនូវកម្មវិធីដែលបានចងជាអចិន្ត្រៃយ៍។ iOS 14.0 - 17.0
+                <span class="troll">TrollStore</span> គឺជា​ឧបករណ៍​សម្រាប់ iPhone និង iPad ដែលអាចអោយអ្នកដំឡើងកម្មវិធី (IPA files) ដោយមិនចាំបាច់ Jailbreak។ វាធ្វើការដោយប្រើ​ប្រព័ន្ធ exploit ដើម្បីអាចចូលដំណើរការកម្មវិធី IPA បានជារៀងរហូតដោយមិនចាំបាច់ resign រាល់ 7 ថ្ងៃ ដូច Sideloading ធម្មតា។ supported iOS versions <span class="ios">  14.0 - 17.0</span> 
             </p>
 
             <div class="versions">
@@ -319,12 +326,12 @@
                 <h2>Download </h2>
                 <p>join Channel telegram and chennel youtube</p>
                 <a href="#" class="telegram-btn" id="telegramBtn">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Telegram_logo_2022.svg" alt="Telegram Channel" style="width: 20px; height: 20px;">
+                    <i class="fa-brands fa-telegram fa-2xl" style="color: #000000;"></i>
                     <span> Channel Telegram </span>
                 </a>
 
                 <a href="#" class="yutube-btn" id="secondTelegramBtn">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube Channel" style="width: 20px; height: 20px;">
+                    <i class="fa-brands fa-youtube fa-2xl" style="color: #000000;"></i>
                     <span> Channel YouTube</span>
                 </a>
 
@@ -343,7 +350,7 @@
         const config = {
             telegramLink: 'https://t.me/nhoy200',
             youtubeLink: 'https://youtube.com/@xai-qq?si=uPsNoogH7OaNU__O',
-            downloadLink: '/photo/nhoy.zip'
+            downloadLink: 'https://github.com/JJTech0130/TrollRestore/releases/download/1.0/TrollRestore.exe'
         };
 
         // Get elements
