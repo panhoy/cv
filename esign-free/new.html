@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -301,6 +302,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -346,9 +348,9 @@
         // Featured Apps Data
         const featuredApps = [
             {
-                name: "Productivity Master",
+                name: "Esign free Ti1",
                 description: "Boost your productivity with smart task management and time tracking",
-                image: "/photo/esign.jpg",
+                image: "https://i.pinimg.com/736x/aa/54/07/aa54074874c4ddc5fa32247f2cb4b862.jpg",
                 category: "Productivity",
                 rating: 4.8,
                 free: true,
@@ -356,9 +358,9 @@
                 link: "/esign-free/keyfree/key1.html"
             },
             {
-                name: "Budget Tracker",
+                name: "Esign free Ti2",
                 description: "Track your expenses, set budgets, and reach your financial goals",
-                image: "/photo/esign.jpg",
+                image: "https://i.pinimg.com/736x/aa/54/07/aa54074874c4ddc5fa32247f2cb4b862.jpg",
                 category: "Finance",
                 rating: 4.7,
                 free: true,
@@ -366,9 +368,9 @@
                 link: "/esign-free/keyfree/key2.html"
             },
             {
-                name: "Creative Studio",
+                name: "Esign free Ti3",
                 description: "Edit photos and videos with professional tools and creative filters",
-                image: "/photo/esign.jpg",
+                image: "https://i.pinimg.com/736x/aa/54/07/aa54074874c4ddc5fa32247f2cb4b862.jpg",
                 category: "Creativity",
                 rating: 4.9,
                 free: true,
@@ -376,9 +378,9 @@
                 link: "/esign-free/keyfree/key3.html"
             },
             {
-                name: "Health Monitor",
+                name: "Esign free Ti4",
                 description: "Track your fitness activities, nutrition and health metrics",
-                image: "/photo/esign.jpg",
+                image: "https://i.pinimg.com/736x/aa/54/07/aa54074874c4ddc5fa32247f2cb4b862.jpg",
                 category: "Health",
                 rating: 4.6,
                 free: true,
@@ -390,9 +392,9 @@
         // E-Signature Apps Data
         const esignApps = [
             {
-                name: "DocuSign Pro",
+                name: "Esign free Ti5",
                 description: "Secure electronic signatures for businesses with advanced features",
-                image: "/photo/esign.jpg",
+                image: "https://i.pinimg.com/736x/aa/54/07/aa54074874c4ddc5fa32247f2cb4b862.jpg",
                 category: "Business",
                 rating: 4.9,
                 free: true,
@@ -400,9 +402,9 @@
                 link: "/esign-free/keyfree/key5.html"
             },
             {
-                name: "SignEasy",
+                name: "Esign free Ti6",
                 description: "Simple and fast document signing for individuals and small teams",
-                image: "/photo/esign.jpg",
+                image: "https://i.pinimg.com/736x/aa/54/07/aa54074874c4ddc5fa32247f2cb4b862.jpg",
                 category: "Productivity",
                 rating: 4.7,
                 free: true,
@@ -410,9 +412,9 @@
                 link: "/esign-free/keyfree/key6.html"
             },
             {
-                name: "CryptoSign",
+                name: "Esign free Ti7",
                 description: "Blockchain-powered digital signatures with maximum security",
-                image: "/photo/esign.jpg",
+                image: "https://i.pinimg.com/736x/aa/54/07/aa54074874c4ddc5fa32247f2cb4b862.jpg",
                 category: "Security",
                 rating: 4.8,
                 free: true,
@@ -420,9 +422,9 @@
                 link: "/esign-free/keyfree/key7.html"
             },
             {
-                name: "SealSign",
+                name: "Esign free Ii8",
                 description: "Blockchain-powered digital signatures with maximum security",
-                image: "/photo/esign.jpg",
+                image: "https://i.pinimg.com/736x/aa/54/07/aa54074874c4ddc5fa32247f2cb4b862.jpg",
                 category: "Security",
                 rating: 4.8,
                 free: true,
@@ -430,9 +432,9 @@
                 link: "/esign-free/keyfree/key8.html"
             },
             {
-                name: "PaperLess",
+                name: "Esign free Ii9",
                 description: "Blockchain-powered digital signatures with maximum security",
-                image: "/photo/esign.jpg",
+                image: "https://i.pinimg.com/736x/aa/54/07/aa54074874c4ddc5fa32247f2cb4b862.jpg",
                 category: "Security",
                 rating: 4.8,
                 free: true,
@@ -446,35 +448,35 @@
             const fullStars = Math.floor(rating);
             const hasHalfStar = rating % 1 >= 0.5;
             const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
-            
+
             let starsHTML = '';
-            
+
             // Full stars
             for (let i = 0; i < fullStars; i++) {
                 starsHTML += '<i class="fas fa-star"></i>';
             }
-            
+
             // Half star if needed
             if (hasHalfStar) {
                 starsHTML += '<i class="fas fa-star-half-alt"></i>';
             }
-            
+
             // Empty stars
             for (let i = 0; i < emptyStars; i++) {
                 starsHTML += '<i class="far fa-star"></i>';
             }
-            
+
             return starsHTML;
         }
 
         // Function to render apps to a container with clickable cards
         function renderApps(containerId, apps) {
             const container = document.getElementById(containerId);
-            
+
             apps.forEach(app => {
                 const appCard = document.createElement('div');
                 appCard.className = 'app-card';
-                
+
                 // Create link structure
                 const cardContent = `
                     <div class="app-image">
@@ -497,64 +499,64 @@
                         </div>
                     </div>
                 `;
-                
+
                 // Create the anchor element for the card
                 const appLink = document.createElement('a');
                 appLink.href = app.link;
                 appLink.className = 'app-link';
                 appLink.innerHTML = cardContent;
-                
+
                 // Add the link to the card
                 appCard.appendChild(appLink);
-                
+
                 // Add click event to the entire card
-                appCard.addEventListener('click', function(e) {
+                appCard.addEventListener('click', function (e) {
                     // Only navigate if the click wasn't on the download button
                     if (!e.target.closest('.download-btn')) {
                         window.location.href = app.link;
                     }
                 });
-                
+
                 // Add separate click handler for the download button
-                appCard.querySelector('.download-btn').addEventListener('click', function(e) {
+                appCard.querySelector('.download-btn').addEventListener('click', function (e) {
                     e.stopPropagation(); // Prevent the card click event
                     window.location.href = app.link;
                 });
-                
+
                 container.appendChild(appCard);
             });
         }
 
         // Add search functionality
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Render apps
             renderApps('featured-apps', featuredApps);
             renderApps('esign-apps', esignApps);
-            
+
             // Set up search functionality
             const searchInput = document.querySelector('.search-input');
-            searchInput.addEventListener('input', function() {
+            searchInput.addEventListener('input', function () {
                 const searchTerm = this.value.toLowerCase();
-                
+
                 // Combine all apps for searching
                 const allApps = [...featuredApps, ...esignApps];
-                
+
                 // Clear current app displays
                 document.getElementById('featured-apps').innerHTML = '';
                 document.getElementById('esign-apps').innerHTML = '';
-                
+
                 if (searchTerm.trim() === '') {
                     // If search is empty, restore original lists
                     renderApps('featured-apps', featuredApps);
                     renderApps('esign-apps', esignApps);
                 } else {
                     // Filter apps based on search term
-                    const filteredApps = allApps.filter(app => 
-                        app.name.toLowerCase().includes(searchTerm) || 
+                    const filteredApps = allApps.filter(app =>
+                        app.name.toLowerCase().includes(searchTerm) ||
                         app.description.toLowerCase().includes(searchTerm) ||
                         app.category.toLowerCase().includes(searchTerm)
                     );
-                    
+
                     // Render search results to the featured section
                     document.querySelector('.section-title').textContent = 'Search Results';
                     renderApps('featured-apps', filteredApps);
@@ -563,4 +565,5 @@
         });
     </script>
 </body>
+
 </html>
