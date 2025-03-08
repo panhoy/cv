@@ -1,794 +1,587 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nhoy | Web Developer</title>
-  <link rel="icon" href="/photo/logo11.jpg" sizes="32x32" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  <style>
-    /* Base styles and variables - New Color Palette */
-    :root {
-      --primary: #2563eb;
-      --secondary: #1e40af;
-      --accent: #f43f5e;
-      --light: #f1f5f9;
-      --dark: #0f172a;
-      --gray: #64748b;
-      --text: #1e293b;
-      --background: #f8fafc;
-      --card-bg: #ffffff;
-      --border-radius: 16px;
-      --card-radius: 20px;
-      --box-shadow: 0 10px 25px rgb(203, 198, 198);
-      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      --gradient: linear-gradient(135deg, #2563eb, #4f46e5);
-      --accent-gradient: linear-gradient(135deg, #f43f5e, #ec4899);
-    }
-
-    /* Dark mode variables */
-    .dark-mode {
-      --text: #f1f5f9;
-      --background: #000000;
-      --card-bg: #1e293b;
-      --gray: #94a3b8;
-      --box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Reset and base styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background-color: var(--background);
-      color: var(--text);
-      line-height: 1.7;
-      transition: var(--transition);
-    }
-
-    a {
-      text-decoration: none;
-      color: var(--primary);
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    /* Layout */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    .section {
-      padding: 6rem 0;
-      position: relative;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 4rem;
-      position: relative;
-    }
-
-    .section-title h2 {
-      font-size: 2.5rem;
-      margin-bottom: 0.75rem;
-      display: inline-block;
-      position: relative;
-      z-index: 1;
-    }
-
-    .section-title h2::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: -10px;
-      width: calc(100% + 20px);
-      height: 12px;
-      background: var(--accent);
-      opacity: 0.3;
-      z-index: -1;
-      transform: skewX(-10deg);
-    }
-
-    /* Header section - Modern Hero */
-    .header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 8rem 0 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .header::before {
-      content: '';
-      position: absolute;
-      top: -100px;
-      right: -100px;
-      width: 400px;
-      height: 400px;
-      border-radius: 50%;
-      background: var(--accent-gradient);
-      opacity: 0.05;
-      z-index: 0;
-    }
-
-    .header::after {
-      content: '';
-      position: absolute;
-      bottom: -100px;
-      left: -100px;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      background: var(--gradient);
-      opacity: 0.05;
-      z-index: 0;
-    }
-
-    .profile {
-      margin-bottom: 2.5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .profile-img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 6px solid var(--card-bg);
-      box-shadow: var(--box-shadow);
-      transition: var(--transition);
-    }
-
-    .profile-img:hover {
-      transform: scale(1.05) rotate(5deg);
-      box-shadow: 0 15px 35px rgba(37, 99, 235, 0.25);
-    }
-
-    .header-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .header-content h1 {
-      font-size: 4rem;
-      margin-bottom: 0.75rem;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: -1px;
-    }
-
-    .header-content h2 {
-      font-size: 1.75rem;
-      color: var(--accent);
-      margin-bottom: 1.75rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-
-    .header-text {
-      max-width: 700px;
-      margin: 0 auto 2rem;
-      font-size: 1.25rem;
-      color: var(--gray);
-      line-height: 1.8;
-    }
-
-    /* Social links - Floating style */
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.75rem;
-      margin-top: 2.5rem;
-    }
-
-    .social-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      background-color: var(--card-bg);
-      color: var(--primary);
-      font-size: 1.4rem;
-      box-shadow: var(--box-shadow);
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .social-link::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--gradient);
-      z-index: -1;
-      opacity: 0;
-      transition: var(--transition);
-    }
-
-    .social-link:hover {
-      transform: translateY(-8px);
-      color: #fff;
-    }
-
-    .social-link:hover::before {
-      opacity: 1;
-    }
-
-    /* Skills section - Card Grid */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      gap: 2.5rem;
-      margin-top: 2rem;
-    }
-
-    .skill-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      transition: var(--transition);
-    }
-
-    .skill-item:hover {
-      transform: translateY(-10px);
-    }
-
-    .skill-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 90px;
-      height: 90px;
-      border-radius: var(--card-radius);
-      background: var(--card-bg);
-      margin-bottom: 1.25rem;
-      font-size: 2.5rem;
-      color: var(--primary);
-      box-shadow: var(--box-shadow);
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .skill-icon::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--gradient);
-      z-index: -1;
-      opacity: 0;
-      transition: var(--transition);
-    }
-
-    .skill-item:hover .skill-icon {
-      color: #fff;
-    }
-
-    .skill-item:hover .skill-icon::before {
-      opacity: 1;
-    }
-
-    .skill-name {
-      font-weight: 600;
-      font-size: 1rem;
-      color: var(--text);
-    }
-
-    /* Projects section - Modern Cards */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 3rem;
-    }
-
-    .project-card {
-      background: var(--card-bg);
-      border-radius: var(--card-radius);
-      overflow: hidden;
-      box-shadow: var(--box-shadow);
-      transition: var(--transition);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-
-    .project-card:hover {
-      transform: translateY(-15px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-    }
-
-    .project-img {
-      height: 220px;
-      width: 100%;
-      object-fit: cover;
-      transition: var(--transition);
-    }
-
-    .project-card:hover .project-img {
-      transform: scale(1.05);
-    }
-
-    .project-content {
-      padding: 2rem;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-
-    .project-title {
-      font-size: 1.5rem;
-      margin-bottom: 1.25rem;
-      color: var(--text);
-      transition: var(--transition);
-    }
-
-    .project-card:hover .project-title {
-      color: var(--primary);
-    }
-
-    .project-link {
-      margin-top: auto;
-      align-self: flex-start;
-      padding: 0.75rem 1.5rem;
-      border-radius: 30px;
-      background: var(--gradient);
-      color: white;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: var(--transition);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
-    }
-
-    .project-link:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 15px rgba(37, 99, 235, 0.3);
-    }
-
-    /* Languages section - Pill style */
-    .languages-list {
-      display: flex;
-      justify-content: center;
-      gap: 2.5rem;
-      list-style: none;
-      margin-top: 2rem;
-    }
-
-    .language-item {
-      padding: 1rem 2rem;
-      background: var(--card-bg);
-      border-radius: 30px;
-      font-weight: 600;
-      box-shadow: var(--box-shadow);
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .language-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--gradient);
-      z-index: -1;
-      opacity: 0;
-      transition: var(--transition);
-    }
-
-    .language-item:hover {
-      transform: translateY(-8px);
-      color: white;
-    }
-
-    .language-item:hover::before {
-      opacity: 1;
-    }
-
-    /* Theme toggle - Floating */
-    .theme-toggle {
-      position: fixed;
-      bottom: 2.5rem;
-      right: 2.5rem;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--gradient);
-      color: white;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      font-size: 1.5rem;
-      z-index: 999;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-      transition: var(--transition);
-    }
-
-    .theme-toggle:hover {
-      transform: rotate(45deg) scale(1.1);
-    }
-
-    /* Decorative elements */
-    .decorative-shape {
-      position: absolute;
-      opacity: 0.05;
-      z-index: 0;
-    }
-
-    .skills-shape {
-      top: 50px;
-      left: -100px;
-      width: 250px;
-      height: 250px;
-      border-radius: 35% 65% 65% 35% / 35% 35% 65% 65%;
-      background: var(--accent-gradient);
-      animation: morphShape 15s linear infinite alternate;
-    }
-
-    .projects-shape {
-      bottom: 100px;
-      right: -100px;
-      width: 300px;
-      height: 300px;
-      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-      background: var(--gradient);
-      animation: morphShape 18s linear infinite alternate;
-    }
-
-    @keyframes morphShape {
-      0% {
-        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-      }
-      50% {
-        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-      }
-      100% {
-        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-      }
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .animate {
-      animation: fadeIn 0.8s ease forwards;
-    }
-
-    /* Responsive design */
-    @media (max-width: 768px) {
-      .section {
-        padding: 5rem 0;
-      }
-
-      .header {
-        padding: 5rem 0 3rem;
-      }
-
-      .header-content h1 {
-        font-size: 3rem;
-      }
-
-      .header-content h2 {
-        font-size: 1.5rem;
-      }
-
-      .projects-grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      }
-
-      .languages-list {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1.5rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .header-content h1 {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Free Fire Mods for iOS">
+    <meta property="og:description" content="Download premium Free Fire mods for iOS devices - enhanced gameplay features">
+    <meta property="og:image" content="/path/to/your/image.jpg">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Free Fire iOS Mods - Next-Gen Gaming</title>
+    <style>
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #121212;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Header and Navigation */
+.header {
+    background-color: #1a1a1a;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    border-radius: 8px;
+}
+
+.logo-text {
+    font-weight: 700;
+    font-size: 1.2rem;
+    background: linear-gradient(to right, #ff4d4d, #f9cb28);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.5px;
+}
+
+/* Hero Section */
+.hero {
+    padding: 120px 20px 60px;
+    background: radial-gradient(circle at top right, rgba(255, 77, 77, 0.1), transparent 60%),
+                radial-gradient(circle at bottom left, rgba(249, 203, 40, 0.1), transparent 60%),
+                #121212;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #ff4d4d, #f9cb28);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: #cccccc;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+}
+
+/* Version Badges */
+.versions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 3rem;
+}
+
+.version-badge {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.version-badge:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Features Section */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 24px;
+    margin: 3rem 0;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border-radius: 16px;
+    padding: 1.8rem 1.2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.feature-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.feature-icon {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #ff4d4d, #f9cb28);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.feature-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* Video Container */
+.video-container {
+    margin: 3rem 0;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Download Section */
+.download-section {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    border-radius: 24px;
+    padding: 2.5rem;
+    margin: 3rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.download-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    background: linear-gradient(to right, #ff4d4d, #f9cb28);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.download-section p {
+    color: #cccccc;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.ios {
+    font-family: 'Khmer OS System', Arial, sans-serif;
+    font-weight: 600;
+    color: #f9cb28;
+}
+
+/* Buttons */
+.telegram-btn, .youtube-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.telegram-btn {
+    background-color: #27a7e5;
+    color: white;
+    box-shadow: 0 10px 20px rgba(39, 167, 229, 0.3);
+}
+
+.telegram-btn:hover {
+    background-color: #2095d0;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(39, 167, 229, 0.4);
+}
+
+.youtube-btn {
+    background-color: #ff0000;
+    color: white;
+    box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+}
+
+.youtube-btn:hover {
+    background-color: #e50000;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(255, 0, 0, 0.4);
+}
+
+/* Progress Container */
+.progress-container {
+    background-color: rgba(255, 255, 255, 0.05);
+    height: 10px;
+    border-radius: 30px;
+    margin: 2rem 0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(to right, #ff4d4d, #f9cb28);
+    border-radius: 30px;
+    transition: width 0.4s ease-in-out;
+}
+
+/* Download Button */
+.download-btn {
+    background: linear-gradient(to right, #ff4d4d, #f9cb28);
+    color: #000000;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(255, 77, 77, 0.3);
+}
+
+.download-btn:hover:not([disabled]) {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(255, 77, 77, 0.4);
+    filter: brightness(1.05);
+}
+
+.download-btn[disabled] {
+    background: linear-gradient(to right, #666666, #888888);
+    color: rgba(255, 255, 255, 0.6);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: #888888;
+    font-size: 0.9rem;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .hero h1 {
         font-size: 2.5rem;
-      }
-
-      .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-      }
-
-      .profile-img {
-        width: 160px;
-        height: 160px;
-      }
-
-      .theme-toggle {
-        bottom: 2rem;
-        right: 2rem;
-        width: 50px;
-        height: 50px;
-      }
     }
-  </style>
-</head>
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    .download-section {
+        padding: 1.8rem;
+    }
+    
+    .telegram-btn, .youtube-btn {
+        width: 100%;
+        margin: 8px 0;
+    }
+    
+    .download-btn {
+        width: 100%;
+    }
+}
 
+@media (max-width: 480px) {
+    .features {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .download-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .version-badge {
+        font-size: 0.8rem;
+        padding: 5px 12px;
+    }
+}
+.logo-container img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+    </style>
+</head>
 <body>
-  <div class="container">
     <header class="header">
-      <div class="profile">
-        <img src="/photo/logo11.jpg" alt="Nhoy's Profile" class="profile-img">
-      </div>
-      <div class="header-content">
-        <h1>Nhoy</h1>
-        <h2>Web Developer</h2>
-        <p class="header-text">
-          I'm passionate about technology, cyber security, and web development.
-          I enjoy coding, solving problems, and staying up-to-date with the latest trends.
-        </p>
-      </div>
-      <div class="social-links">
-        <a href="https://www.tiktok.com/@nhoy_n?_t=ZS-8tBmMfw9ZiS&_r=1" class="social-link" aria-label="TikTok">
-          <i class="fa-brands fa-tiktok"></i>
-        </a>
-        <a href="https://www.facebook.com/share/164UR4BokF/?mibextid=wwXIfr" class="social-link" aria-label="Facebook">
-          <i class="fa-brands fa-facebook"></i>
-        </a>
-        <a href="https://www.youtube.com/@Xai-qq" class="social-link" aria-label="YouTube">
-          <i class="fa-brands fa-youtube"></i>
-        </a>
-        <a href="https://nhoy_11.t.me/" class="social-link" aria-label="Telegram">
-          <i class="fa-brands fa-telegram"></i>
-        </a>
-      </div>
+        <nav class="nav">
+            <div class="logo-container">
+                <img src="/trollstore/photo/photo_2025-02-21_01-44-10.jpg" alt="Free Fire Mod" class="logo">
+                <span class="logo-text">FREE FIRE MODS</span>
+            </div>
+        </nav>
     </header>
 
-    <section class="section" id="skills">
-      <div class="decorative-shape skills-shape"></div>
-      <div class="section-title">
-        <h2>Skills</h2>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-item">
-          <div class="skill-icon">
-            <i class="fa-brands fa-html5"></i>
-          </div>
-          <p class="skill-name">HTML</p>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>FREE FIRE MODS</h1>
+            <p>Ultimate enhanced gaming experience for iOS devices</p>
+            
+            <div class="versions">
+                <span class="version-badge">iOS 14</span>
+                <span class="version-badge">iOS 15</span>
+                <span class="version-badge">iOS 16</span>
+                <span class="version-badge">iOS 17</span>
+                <span class="version-badge">iOS 18</span>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <i class="fa-solid fa-crosshairs feature-icon"></i>
+                    <h3>Auto Aim</h3>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-eye feature-icon"></i>
+                    <h3>ESP Hack</h3>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-shield-halved feature-icon"></i>
+                    <h3>Antiban</h3>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-bolt-lightning feature-icon"></i>
+                    <h3>Speed</h3>
+                </div>
+            </div>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/q_FKSGv76Ro?si=OqHUC3xo8RZy8vaw" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            
+            <!-- Download Section 1 -->
+            <div class="download-section">
+                <h2>Download Free Fire Mod</h2>
+                <p>For iOS <span class="ios">បាញ់ក្បាល់80%</span> devices</p>
+               
+                <a href="#" class="telegram-btn" id="telegramBtn">
+                    <i class="fa-brands fa-telegram"></i>
+                    <span>Join Telegram Channel</span>
+                </a>
+
+                <a href="#" class="youtube-btn" id="youtubeBtn">
+                    <i class="fa-brands fa-youtube"></i>
+                    <span>Subscribe to YouTube</span>
+                </a>
+
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+
+                <button class="download-btn" id="downloadBtn" disabled>
+                    <i class="fa-solid fa-download"></i>
+                    <span>PassWork</span>
+                </button>
+            </div>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/q_FKSGv76Ro?si=OqHUC3xo8RZy8vaw" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <!-- Download Section 2 -->
+            <div class="download-section">
+                <h2>Download Alternative Mod</h2>
+                <p>For iOS <span class="ios">មើលធ្លុះផ្ទះ</span> devices</p>
+                
+                <a href="#" class="telegram-btn" id="telegramBtn2">
+                    <i class="fa-brands fa-telegram"></i>
+                    <span>Join Main Telegram</span>
+                </a>
+                
+                <a href="#" class="telegram-btn" id="telegramBtn3">
+                    <i class="fa-brands fa-telegram"></i>
+                    <span>Join Second Telegram</span>
+                </a>
+
+                <a href="#" class="youtube-btn" id="youtubeBtn2">
+                    <i class="fa-brands fa-youtube"></i>
+                    <span>Subscribe to YouTube</span>
+                </a>
+
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar2"></div>
+                </div>
+
+                <button class="download-btn" id="downloadBtn2" disabled>
+                    <i class="fa-solid fa-download"></i>
+                    <span>PassWork</span>
+                </button>
+            </div>
+            <div class="footer">
+                <p>© 2025 Free Fire Mods. Not affiliated with Garena or Free Fire.</p>
+                <p>All gameplay modifications are for educational purposes only.</p>
+            </div>
         </div>
-        <div class="skill-item">
-          <div class="skill-icon">
-            <i class="fa-brands fa-css3-alt"></i>
-          </div>
-          <p class="skill-name">CSS</p>
-        </div>
-        <div class="skill-item">
-          <div class="skill-icon">
-            <i class="fa-brands fa-js"></i>
-          </div>
-          <p class="skill-name">JavaScript</p>
-        </div>
-        <div class="skill-item">
-          <div class="skill-icon">
-            <i class="fa-brands fa-python"></i>
-          </div>
-          <p class="skill-name">Python</p>
-        </div>
-        <div class="skill-item">
-          <div class="skill-icon">
-            <i class="fa-brands fa-linux"></i>
-          </div>
-          <p class="skill-name">Linux</p>
-        </div>
-        <div class="skill-item">
-          <div class="skill-icon">
-            <i class="fa-brands fa-git"></i>
-          </div>
-          <p class="skill-name">Git</p>
-        </div>
-        <div class="skill-item">
-          <div class="skill-icon">
-            <i class="fa-brands fa-docker"></i>
-          </div>
-          <p class="skill-name">Docker</p>
-        </div>
-        <div class="skill-item">
-          <div class="skill-icon">
-            <i class="fa-brands fa-node-js"></i>
-          </div>
-          <p class="skill-name">Node.js</p>
-        </div>
-        <div class="skill-item">
-          <div class="skill-icon">
-            <i class="fa-brands fa-react"></i>
-          </div>
-          <p class="skill-name">React</p>
-        </div>
-        <div class="skill-item">
-          <div class="skill-icon">
-            <i class="fa-brands fa-keycdn"></i>
-          </div>
-          <p class="skill-name">Pen Testing</p>
-        </div>
-        <div class="skill-item">
-          <div class="skill-icon">
-            <i class="fa-brands fa-wpexplorer"></i>
-          </div>
-          <p class="skill-name">WPE</p>
-        </div>
-        <div class="skill-item">
-          <div class="skill-icon">
-            <i class="fa-brands fa-figma"></i>
-          </div>
-          <p class="skill-name">Figma</p>
-        </div>
-      </div>
-    </section>
-    <section class="section" id="projects">
-      <div class="decorative-shape projects-shape"></div>
-      <div class="section-title">
-        <h2>Projects</h2>
-      </div>
-      <div class="projects-grid">
-        <div class="project-card">
-          <img src="/photo/esign.jpg" alt="APP Esing Project" class="project-img">
-          <div class="project-content">
-            <h3 class="project-title">APP Esing</h3>
-            <a href="/file-game/new.html" class="project-link">View Project</a>
-          </div>
-        </div>
-        <div class="project-card">
-          <img src="https://i.pinimg.com/736x/5c/47/2e/5c472e512da8d3d346da67d02c296f47.jpg" alt="Esing FREE Project" class="project-img">
-          <div class="project-content">
-            <h3 class="project-title">Esing FREE</h3>
-            <a href="/esign-free/new.html" class="project-link">View Project</a>
-          </div>
-        </div>
-        <div class="project-card">
-          <img src="https://i.pinimg.com/736x/67/c7/41/67c74161d4e07b2c2d862a6e213cb9e1.jpg" alt="Troll Store Project" class="project-img">
-          <div class="project-content">
-            <h3 class="project-title">Troll Store</h3>
-            <a href="/trollstore/index.html" class="project-link">View Project</a>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <section class="section" id="languages">
-      <div class="section-title">
-        <h2>Languages</h2>
-      </div>
-      <ul class="languages-list">
-        <li class="language-item">Khmer (Native)</li>
-        <li class="language-item">English (Intermediate)</li>
-      </ul>
-    </section>
-  </div>
+    <script>
+        // Configuration for all download sections
+        const config = {
+            telegramLink: 'https://t.me/nhoy200',
+            telegramLink2: 'https://t.me/irra11store',
+            youtubeLink: 'https://youtube.com/@xai-qq?si=uPsNoogH7OaNU__O',
+            downloadLink: '/mode/hack-map.html',
+            downloadLink2: '/mode/banh80.html'
+        };
 
-  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-    <i class="fa-solid fa-moon"></i>
-  </button>
+        // First Download Section
+        const telegramBtn = document.getElementById('telegramBtn');
+        const youtubeBtn = document.getElementById('youtubeBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const progressBar = document.getElementById('progressBar');
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Apply animations to sections
-      const sections = document.querySelectorAll('.section');
-      sections.forEach((section, index) => {
-        section.classList.add('animate');
-        section.style.animationDelay = `${index * 0.3}s`;
-      });
+        // Second Download Section
+        const telegramBtn2 = document.getElementById('telegramBtn2');
+        const telegramBtn3 = document.getElementById('telegramBtn3');
+        const youtubeBtn2 = document.getElementById('youtubeBtn2');
+        const downloadBtn2 = document.getElementById('downloadBtn2');
+        const progressBar2 = document.getElementById('progressBar2');
 
-      // Dark mode toggle
-      const themeToggle = document.getElementById('theme-toggle');
-      const themeIcon = themeToggle.querySelector('i');
-      
-      // Check for saved theme preference
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark') {
-        document.body.classList.add('dark-mode');
-        themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun');
-      }
-      
-      themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        
-        if (document.body.classList.contains('dark-mode')) {
-          themeIcon.classList.remove('fa-moon');
-          themeIcon.classList.add('fa-sun');
-          localStorage.setItem('theme', 'dark');
-        } else {
-          themeIcon.classList.remove('fa-sun');
-          themeIcon.classList.add('fa-moon');
-          localStorage.setItem('theme', 'light');
+        // State tracking
+        const state1 = {
+            telegram: false,
+            youtube: false
+        };
+
+        const state2 = {
+            telegram1: false,
+            telegram2: false,
+            youtube: false
+        };
+
+        // Update progress function for first section
+        function updateProgress1() {
+            const totalSteps = Object.keys(state1).length;
+            const completedSteps = Object.values(state1).filter(Boolean).length;
+            const progress = (completedSteps / totalSteps) * 100;
+            
+            progressBar.style.width = `${progress}%`;
+            downloadBtn.disabled = completedSteps !== totalSteps;
         }
-      });
-      
-      // Animate elements when they come into view
-      const observerOptions = {
-        threshold: 0.2,
-        rootMargin: '0px 0px -50px 0px'
-      };
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            if (entry.target.classList.contains('skill-item')) {
-              entry.target.style.opacity = 1;
-              entry.target.style.transform = 'translateY(0)';
-            }
-            if (entry.target.classList.contains('project-card')) {
-              entry.target.style.opacity = 1;
-              entry.target.style.transform = 'translateY(0)';
-            }
-          }
-        });
-      }, observerOptions);
-      
-      // Observe skill items
-      const skillItems = document.querySelectorAll('.skill-item');
-      skillItems.forEach((item, index) => {
-        item.style.opacity = 0;
-        item.style.transform = 'translateY(30px)';
-        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        item.style.transitionDelay = `${index * 0.08}s`;
-        observer.observe(item);
-      });
-      
-      // Observe project cards
-      const projectCards = document.querySelectorAll('.project-card');
-      projectCards.forEach((card, index) => {
-        card.style.opacity = 0;
-        card.style.transform = 'translateY(40px)';
-        card.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-        card.style.transitionDelay = `${index * 0.15}s`;
-        observer.observe(card);
-      });
-    });
-  </script>
-</body>
 
-</html>
+        // Update progress function for second section
+        function updateProgress2() {
+            const totalSteps = Object.keys(state2).length;
+            const completedSteps = Object.values(state2).filter(Boolean).length;
+            const progress = (completedSteps / totalSteps) * 100;
+            
+            progressBar2.style.width = `${progress}%`;
+            downloadBtn2.disabled = completedSteps !== totalSteps;
+        }
+
+        // First section event handlers
+        telegramBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open(config.telegramLink, '_blank');
+            state1.telegram = true;
+            telegramBtn.style.opacity = '0.8';
+            telegramBtn.innerHTML = '<i class="fa-brands fa-telegram"></i><span>Joined ✓</span>';
+            updateProgress1();
+        });
+
+        youtubeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open(config.youtubeLink, '_blank');
+            state1.youtube = true;
+            youtubeBtn.style.opacity = '0.8';
+            youtubeBtn.innerHTML = '<i class="fa-brands fa-youtube"></i><span>Subscribed ✓</span>';
+            updateProgress1();
+        });
+
+        downloadBtn.addEventListener('click', () => {
+            if (Object.values(state1).every(Boolean)) {
+                window.location.href = config.downloadLink;
+            }
+        });
+
+        // Second section event handlers
+        telegramBtn2.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open(config.telegramLink, '_blank');
+            state2.telegram1 = true;
+            telegramBtn2.style.opacity = '0.8';
+            telegramBtn2.innerHTML = '<i class="fa-brands fa-telegram"></i><span>Joined ✓</span>';
+            updateProgress2();
+        });
+
+        telegramBtn3.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open(config.telegramLink2, '_blank');
+            state2.telegram2 = true;
+            telegramBtn3.style.opacity = '0.8';
+            telegramBtn3.innerHTML = '<i class="fa-brands fa-telegram"></i><span>Joined ✓</span>';
+            updateProgress2();
+        });
+
+        youtubeBtn2.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open(config.youtubeLink, '_blank');
+            state2.youtube = true;
+            youtubeBtn2.style.opacity = '0.8';
+            youtubeBtn2.innerHTML = '<i class="fa-brands fa-youtube"></i><span>Subscribed ✓</span>';
+            updateProgress2();
+        });
+
+        downloadBtn2.addEventListener('click', () => {
+            if (Object.values(state2).every(Boolean)) {
+                window.location.href = config.downloadLink2;
+            }
+        });
+    </script>
