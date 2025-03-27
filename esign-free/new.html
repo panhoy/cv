@@ -367,15 +367,16 @@
                 <a href="#" class="see-all">See All <i class="fas fa-chevron-right"></i></a>
             </div>
             <div class="app-grid" id="esign-apps"></div>
-        </section>
-
-        <footer>
             <div class="download-container">
+                
                 <h1>Download ZIP File</h1>
                 <p>Click the button below to download a sample ZIP file.</p>
-                <button id="downloadBtn">Download ZIP</button>
+                <a href="https://t.me/nhoy200/209"> <button id="downloadBtn">Download ZIP</button></a>
+               
                 <div id="status"></div>
             </div>
+        </section>
+        <footer>
             <p>&copy; 2025 AppVault. All rights reserved.</p>
         </footer>
     </div>
@@ -618,13 +619,11 @@
                 const url = window.URL.createObjectURL(blob);
                 const link = document.createElement('a');
                 link.href = url;
-                link.download = 'sai.zip';
                 
                 // Append to body, click, and remove
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
-                
                 // Revoke the URL to free up memory
                 window.URL.revokeObjectURL(url);
 
