@@ -58,3 +58,4 @@ soonLinks.forEach(link => {
         alert("This feature will be available soon!");
     });
 });
+

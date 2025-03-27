@@ -300,6 +300,36 @@
                 grid-template-columns: 1fr;
             }
         }
+        .download-container {
+            background-color: rgb(14, 13, 13);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 30px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        #downloadBtn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        #downloadBtn:hover {
+            background-color: #45a049;
+        }
+        #downloadBtn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        #status {
+            margin-top: 15px;
+            color: #4CAF50;
+        }
     </style>
 </head>
 
@@ -340,6 +370,12 @@
         </section>
 
         <footer>
+            <div class="download-container">
+                <h1>Download ZIP File</h1>
+                <p>Click the button below to download a sample ZIP file.</p>
+                <button id="downloadBtn">Download ZIP</button>
+                <div id="status"></div>
+            </div>
             <p>&copy; 2025 AppVault. All rights reserved.</p>
         </footer>
     </div>
@@ -561,6 +597,42 @@
                     document.querySelector('.section-title').textContent = 'Search Results';
                     renderApps('featured-apps', filteredApps);
                 }
+            });
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+            const downloadBtn = document.getElementById('downloadBtn');
+            const statusDiv = document.getElementById('status');
+
+            downloadBtn.addEventListener('click', () => {
+                // Disable the button during download
+                downloadBtn.disabled = true;
+                statusDiv.textContent = 'Preparing download...';
+
+                // Create a dummy ZIP file content
+                const dummyZipContent = 'This is a sample ZIP file content created dynamically.';
+                
+                // Create a Blob with the content
+                const blob = new Blob([dummyZipContent], { type: 'application/zip' });
+                
+                // Create a download link
+                const url = window.URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'sai.zip';
+                
+                // Append to body, click, and remove
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // Revoke the URL to free up memory
+                window.URL.revokeObjectURL(url);
+
+                // Update status and re-enable button after a short delay
+                setTimeout(() => {
+                    statusDiv.textContent = 'Download complete!';
+                    downloadBtn.disabled = false;
+                }, 1500);
             });
         });
     </script>
