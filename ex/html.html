@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern App Store</title>
+    <style>
+        :root {
+            --primary-color: #4a6cf7;
+            --secondary-color: #6c757d;
+            --light-bg: #f8f9fa;
+            --dark-bg: #212529;
+            --success-color: #28a745;
+            --border-radius: 12px;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: #333;
+            padding: 20px;
+            padding-bottom: 80px;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .search-container {
+            position: relative;
+            margin-bottom: 24px;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 14px 20px 14px 45px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            background-color: white;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--secondary-color);
+        }
+        
+        .categories {
+            display: flex;
+            overflow-x: auto;
+            gap: 12px;
+            margin-bottom: 24px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .categories::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .category {
+            padding: 10px 20px;
+            background-color: white;
+            border-radius: 20px;
+            font-size: 14px;
+            white-space: nowrap;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .category.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .featured-app {
+            position: relative;
+            background: linear-gradient(to right, #4a6cf7, #6a11cb);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-bottom: 24px;
+            padding: 20px;
+            color: white;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            flex-direction: column;
+            height: 200px;
+            justify-content: flex-end;
+        }
+        
+        .featured-badge {
+            background-color: rgba(255, 255, 255, 0.2);
+            font-size: 12px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        
+        .featured-app h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .featured-app p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .see-all {
+            font-size: 14px;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .app-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .app-image {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+        
+        .app-info {
+            padding: 12px;
+        }
+        
+        .app-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .app-category {
+            font-size: 12px;
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+        }
+        
+        .app-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 8px;
+        }
+        
+        .star {
+            color: #ffc107;
+            font-size: 12px;
+        }
+        
+        .rating-value {
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .download-button {
+            padding: 6px 16px;
+            background-color: #f0f0f0;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .download-button.get {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .download-button.cloud {
+            background-color: transparent;
+            color: var(--primary-color);
+            padding: 6px 10px;
+        }
+        
+        .trending-list {
+            margin-bottom: 24px;
+        }
+        
+        .trending-item {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 12px;
+            margin-bottom: 10px;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .trending-rank {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-right: 16px;
+            width: 30px;
+            text-align: center;
+        }
+        
+        .trending-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-right: 16px;
+        }
+        
+        .trending-details {
+            flex: 1;
+        }
+        
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 0 20px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-size: 12px;
+        }
+        
+        .nav-item.active {
+            color: var(--primary-color);
+        }
+        
+        .nav-icon {
+            margin-bottom: 4px;
+            font-size: 22px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Dark mode toggle */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--dark-bg);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: white;
+        }
+        
+        body.dark-mode .header h1,
+        body.dark-mode .section-title {
+            color: white;
+        }
+        
+        body.dark-mode .app-card,
+        body.dark-mode .trending-item,
+        body.dark-mode .bottom-nav,
+        body.dark-mode .search-input,
+        body.dark-mode .category {
+            background-color: #2c3137;
+            border-color: #444;
+            color: white;
+        }
+        
+        body.dark-mode .app-category,
+        body.dark-mode .trending-rank {
+            color: #adb5bd;
+        }
+        
+        body.dark-mode .download-button {
+            background-color: #444;
+            color: white;
+        }
+        
+        body.dark-mode .download-button.get {
+            background-color: var(--primary-color);
+        }
+        
+        body.dark-mode .download-button.cloud {
+            background-color: transparent;
+        }
+        
+        body.dark-mode .nav-item {
+            color: #adb5bd;
+        }
+        
+        body.dark-mode .nav-item.active {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="dark-mode-toggle" id="dark-mode-toggle">🌙</div>
+    
+    <div id="home-view" class="view fade-in">
+        <div class="header">
+            <h1>Discover</h1>
+            <div class="user-avatar">U</div>
+        </div>
+        
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" placeholder="Search for apps and games">
+        </div>
+        
+        <div class="categories">
+            <div class="category active">All</div>
+            <div class="category">Games</div>
+            <div class="category">Social</div>
+            <div class="category">Entertainment</div>
+            <div class="category">Productivity</div>
+            <div class="category">Education</div>
+            <div class="category">Finance</div>
+        </div>
+        
+        <div class="featured-app">
+            <span class="featured-badge">FEATURED</span>
+            <h3>Garena Delta Force</h3>
+            <p>The latest chapter in classic military gaming</p>
+        </div>
+        
+        <div class="section-title">
+            <h2>Popular Now</h2>
+            <a href="#" class="see-all">See All</a>
+        </div>
+        
+        <div class="app-grid">
+            <div class="app-card">
+                <img src="/api/placeholder/300/200" alt="TikTok" class="app-image">
+                <div class="app-info">
+                    <div class="app-title">TikTok-Global</div>
+                    <div class="app-category">Social Media</div>
+                    <div class="app-rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">☆</span>
+                        <span class="rating-value">4.8</span>
+                    </div>
+                    <button class="download-button cloud" data-app="tiktok">↓</button>
+                </div>
+            </div>
+            
+            <div class="app-card">
+                <img src="/api/placeholder/300/200" alt="YouTube" class="app-image">
+                <div class="app-info">
+                    <div class="app-title">YouTube</div>
+                    <div class="app-category">Entertainment</div>
+                    <div class="app-rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="rating-value">4.9</span>
+                    </div>
+                    <button class="download-button cloud" data-app="youtube">↓</button>
+                </div>
+            </div>
+            
+            <div class="app-card">
+                <img src="/api/placeholder/300/200" alt="Snapchat" class="app-image">
+                <div class="app-info">
+                    <div class="app-title">Snapchat</div>
+                    <div class="app-category">Social Media</div>
+                    <div class="app-rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">☆</span>
+                        <span class="rating-value">4.5</span>
+                    </div>
+                    <button class="download-button get" data-app="snapchat">GET</button>
+                </div>
+            </div>
+            
+            <div class="app-card">
+                <img src="/api/placeholder/300/200" alt="Picsart" class="app-image">
+                <div class="app-info">
+                    <div class="app-title">Picsart AI Photo</div>
+                    <div class="app-category">Photo & Video</div>
+                    <div class="app-rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">☆</span>
+                        <span class="rating-value">4.6</span>
+                    </div>
+                    <button class="download-button cloud" data-app="picsart">↓</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-title">
+            <h2>Trending Now</h2>
+            <a href="#" class="see-all">See All</a>
+        </div>
+        
+        <div class="trending-list">
+            <div class="trending-item">
+                <div class="trending-rank">1</div>
+                <img src="/api/placeholder/100/100" alt="Instagram" class="trending-icon">
+                <div class="trending-details">
+                    <div class="app-title">Instagram</div>
+                    <div class="app-category">Social Media</div>
+                    <div class="app-rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">☆</span>
+                        <span class="rating-value">4.7</span>
+                    </div>
+                </div>
+                <button class="download-button cloud">↓</button>
+            </div>
+            
+            <div class="trending-item">
+                <div class="trending-rank">2</div>
+                <img src="/api/placeholder/100/100" alt="Spotify" class="trending-icon">
+                <div class="trending-details">
+                    <div class="app-title">Spotify: Music & Podcasts</div>
+                    <div class="app-category">Music</div>
+                    <div class="app-rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="rating-value">4.8</span>
+                    </div>
+                </div>
+                <button class="download-button get">GET</button>
+            </div>
+            
+            <div class="trending-item">
+                <div class="trending-rank">3</div>
+                <img src="/api/placeholder/100/100" alt="Netflix" class="trending-icon">
+                <div class="trending-details">
+                    <div class="app-title">Netflix</div>
+                    <div class="app-category">Entertainment</div>
+                    <div class="app-rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">☆</span>
+                        <span class="rating-value">4.5</span>
+                    </div>
+                </div>
+                <button class="download-button cloud">↓</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="games-view" class="view hidden">
+        <div class="header">
+            <h1>Games</h1>
+            <div class="user-avatar">U</div>
+        </div>
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" placeholder="Search for games">
+        </div>
+        <h2 class="section-title">Popular Games</h2>
+        <p>Coming soon...</p>
+    </div>
+    
+    <div id="apps-view" class="view hidden">
+        <div class="header">
+            <h1>Apps</h1>
+            <div class="user-avatar">U</div>
+        </div>
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" placeholder="Search for apps">
+        </div>
+        <h2 class="section-title">Top Apps</h2>
+        <p>Coming soon...</p>
+    </div>
+    
+    <div id="updates-view" class="view hidden">
+        <div class="header">
+            <h1>Updates</h1>
+            <div class="user-avatar">U</div>
+        </div>
+        <h2 class="section-title">Pending Updates</h2>
+        <p>No updates available</p>
+    </div>
+    
+    <div id="search-view" class="view hidden">
+        <div class="header">
+            <h1>Search</h1>
+            <div class="user-avatar">U</div>
+        </div>
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" placeholder="Search for apps and games">
+        </div>
+        <h2 class="section-title">Popular Searches</h2>
+        <p>Start typing to search</p>
+    </div>
+    
+    <div class="bottom-nav">
+        <a href="#" class="nav-item active" data-view="home-view">
+            <span class="nav-icon">🏠</span>
+            <span>Home</span>
+        </a>
+        <a href="#" class="nav-item" data-view="games-view">
+            <span class="nav-icon">🎮</span>
+            <span>Games</span>
+        </a>
+        <a href="#" class="nav-item" data-view="apps-view">
+            <span class="nav-icon">📱</span>
+            <span>Apps</span>
+        </a>
+        <a href="#" class="nav-item" data-view="updates-view">
+            <span class="nav-icon">↓</span>
+            <span>Updates</span>
+        </a>
+        <a href="#" class="nav-item" data-view="search-view">
+            <span class="nav-icon">🔍</span>
+            <span>Search</span>
+        </a>
+    </div>
+
+    <script>
+        // Tab navigation
+        document.querySelectorAll('.nav-item').forEach(tab => {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Hide all views
+                document.querySelectorAll('.view').forEach(view => {
+                    view.classList.add('hidden');
+                    view.classList.remove('fade-in');
+                });
+                
+                // Remove active class from all tabs
+                document.querySelectorAll('.nav-item').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                
+                // Show current view and set active tab
+                const viewId = this.getAttribute('data-view');
+                const currentView = document.getElementById(viewId);
+                currentView.classList.remove('hidden');
+                setTimeout(() => {
+                    currentView.classList.add('fade-in');
+                }, 10);
+                this.classList.add('active');
+            });
+        });
+        
+        // Category selection
+        document.querySelectorAll('.category').forEach(category => {
+            category.addEventListener('click', function() {
+                document.querySelectorAll('.category').forEach(cat => {
+                    cat.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // Download button functionality
+        document.querySelectorAll('.download-button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (this.textContent === 'GET') {
+                    this.textContent = 'LOADING';
+                    this.classList.add('loading');
+                    
+                    // Simulate download
+                    const progressInterval = setInterval(() => {
+                        if (this.textContent === 'LOADING') {
+                            this.textContent = 'LOADING.';
+                        } else if (this.textContent === 'LOADING.') {
+                            this.textContent = 'LOADING..';
+                        } else if (this.textContent === 'LOADING..') {
+                            this.textContent = 'LOADING...';
+                        } else {
+                            this.textContent = 'LOADING';
+                        }
+                    }, 300);
+                    
+                    setTimeout(() => {
+                        clearInterval(progressInterval);
+                        this.textContent = 'OPEN';
+                        this.classList.remove('loading');
+                    }, 3000);
+                }
+            });
+        });
+        
+        // Search functionality
+        document.querySelectorAll('.search-input').forEach(input => {
+            input.addEventListener('focus', function() {
+                // Switch to search view when search is focused
+                document.querySelectorAll('.view').forEach(view => {
+                    view.classList.add('hidden');
+                    view.classList.remove('fade-in');
+                });
+                
+                document.querySelectorAll('.nav-item').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                
+                const searchView = document.getElementById('search-view');
+                searchView.classList.remove('hidden');
+                setTimeout(() => {
+                    searchView.classList.add('fade-in');
+                }, 10);
+                
+                document.querySelector('.nav-item[data-view="search-view"]').classList.add('active');
+            });
+        });
+        
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        darkModeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                this.textContent = '☀️';
+            } else {
+                this.textContent = '🌙';
+            }
+        });
+        
+        // Initialize the app
+        window.addEventListener('load', function() {
+            // Check for system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.textContent = '☀️';
+            }
+        });
+    </script>
+</body>
+</html>
