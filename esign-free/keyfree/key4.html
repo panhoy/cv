@@ -1,173 +1,342 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unlock Link</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(rgba(72, 73, 72, 0.5), rgb(70, 11, 65)), 
-                  url('https://i.pinimg.com/736x/50/ed/05/50ed050fd3a26bd86a4ccc0e39b22b0f.jpg');
-      color: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-size: cover;
-      background-position: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect With Us</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --surface-1: #030711;
+            --surface-2: #0F172A;
+            --surface-3: #1E293B;
+            --primary: #4F46E5;
+            --secondary: #7C3AED;
+            --accent: #EC4899;
+            --text-1: #F8FAFC;
+            --text-2: #CBD5E1;
+            --text-3: #94A3B8;
+            --success: #10B981;
+            --youtube: #EF4444;
+            --telegram: #38BDF8;
+        }
 
-    .unlock-container {
-      text-align: center;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      width: 300px;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    h2 {
-      margin-bottom: 10px;
-    }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: var(--surface-1);
+            background-image:
+                radial-gradient(circle at 80% 20%, rgba(79, 70, 229, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 20% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 25%);
+            color: var(--text-1);
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 1rem;
+        }
 
-    .subscribe-btn, .telegram-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #ff0000;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      text-decoration: none;
-      margin: 10px 0;
-      transition: background-color 0.3s;
-    }
+        .card {
+            width: 100%;
+            max-width: 1000px;
+            background: var(--surface-2);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            box-shadow:
+                0 0 0 1px rgba(255, 255, 255, 0.05),
+                0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
 
-    .telegram-btn {
-      background-color: #0084ff;
-    }
+        .grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
 
-    .subscribe-btn img, .telegram-btn img {
-      height: 20px;
-      margin-right: 10px;
-    }
+        .content {
+            padding-right: 2rem;
+        }
 
-    .subscribe-btn:hover {
-      background-color: #cc0000;
-    }
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            background: linear-gradient(to right, var(--text-1), var(--text-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
 
-    .telegram-btn:hover {
-      background-color: #0073e6;
-    }
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--text-2);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
 
-    .progress-bar {
-      margin: 15px 0;
-      background-color: #4b4747;
-      width: 100%;
-      height: 10px;
-      border-radius: 5px;
-      overflow: hidden;
-      position: relative;
-    }
+        .stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
 
-    .progress {
-      width: 0%;
-      height: 100%;
-      background-color: #4caf50;
-      transition: width 0.5s;
-    }
+        .stat {
+            flex: 1;
+        }
 
-    .unlock-btn {
-      background-color: #555;
-      color: #aaa;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: not-allowed;
-    }
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-1);
+            margin-bottom: 0.5rem;
+        }
 
-    .unlock-btn.enabled {
-      background-color: #4caf50;
-      color: #fff;
-      cursor: pointer;
-    }
-  </style>
+        .stat-label {
+            color: var(--text-3);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            
+        }
+
+        .actions {
+            background: var(--surface-3);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn i {
+            font-size: 1.25rem;
+        }
+
+        .btn-telegram {
+            background: var(--telegram);
+            color: var(--surface-1);
+        }
+
+        .btn-youtube {
+            background: var(--youtube);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(110%);
+        }
+
+        .progress {
+            margin: 2rem 0;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            color: var(--text-2);
+            font-size: 0.875rem;
+        }
+
+        .progress-track {
+            height: 6px;
+            background: var(--surface-2);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        .download {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            background: var(--surface-2);
+            color: var(--text-3);
+            border: 1px solid var(--surface-3);
+            cursor: not-allowed;
+            transition: all 0.2s ease;
+        }
+
+        .download.active {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+
+        .download.active:hover {
+            transform: translateY(-2px);
+            filter: brightness(110%);
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .content {
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .stats {
+                justify-content: center;
+            }
+
+            .card {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        .telegram {
+            color: var(--telegram);
+        }
+
+        .youtube {
+            color: var(--youtube);
+        }
+    </style>
 </head>
+
 <body>
-  <div class="unlock-container">
-    <h2>Unlock Link</h2>
-    <p>Complete both actions to unlock the link</p>
-    <a href="#" class="telegram-btn" id="telegramButton">
-      <img src="https://img.icons8.com/color/48/telegram-app.png" alt="Telegram">
-      Join On Telegram
-    </a>
-    <a href="#" class="subscribe-btn" id="youtubeButton">
-      <img src="https://img.icons8.com/color/48/youtube-play.png" alt="YouTube">
-      Subscribe On YouTube
-    </a>
+    <div class="card">
+        <div class="grid">
+            <div class="content">
+                <h1>My Channel YouTube </h1>
+                <p class="tagline">Join Channel <span class="telegram">Telegram</span> and <span
+                        class="youtube">YouTube</span></p>
 
-    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-      <div id="progress" class="progress"></div>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-value">2</div>
+                        <div class="stat-label">Subscribers</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">2</div>
+                        <div class="stat-label">Videos</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">9.9</div>
+                        <div class="stat-label">Rating</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <div class="buttons">
+                    <a href="https://t.me/nhoy200" class="btn btn-telegram" id="telegramBtn">
+                        <i class="fab fa-telegram-plane"></i>
+                        Join Our Telegram
+                    </a>
+                    <a href="https://youtube.com/@xai-qq?si=uPsNoogH7OaNU__O" class="btn btn-youtube" id="youtubeBtn">
+                        <i class="fab fa-youtube"></i>
+                        Subscribe on YouTube
+                    </a>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-label">
+                        <span>Progress</span>
+                        <span id="progressLabel">0%</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                </div>
+
+                <button class="download" id="downloadBtn" disabled>
+                    Download Esign Now
+                </button>
+            </div>
+        </div>
     </div>
-    <button id="unlockButton" class="unlock-btn" disabled>Unlock Link</button>
-  </div>
 
-  <script>
-    const youtubeButton = document.getElementById('youtubeButton');
-    const telegramButton = document.getElementById('telegramButton');
-    const unlockButton = document.getElementById('unlockButton');
-    const progressBar = document.getElementById('progress');
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const telegramBtn = document.getElementById('telegramBtn');
+            const youtubeBtn = document.getElementById('youtubeBtn');
+            const progressBar = document.getElementById('progressBar');
+            const progressLabel = document.getElementById('progressLabel');
+            const downloadBtn = document.getElementById('downloadBtn');
 
-    let isYouTubeClicked = false;
-    let isTelegramClicked = false;
+            let progress = {
+                telegram: false,
+                youtube: false
+            };
 
-    // Event listener for the YouTube button
-    youtubeButton.addEventListener('click', function (event) {
-      event.preventDefault();
-      isYouTubeClicked = true;
-      window.open('https://youtube.com/@xai-qq?si=fhMk_zGHAerZtpSQ', '_blank');
-      checkProgress();
-    });
+            function updateProgress() {
+                const completedSteps = Object.values(progress).filter(Boolean).length;
+                const progressPercentage = (completedSteps / 2) * 100;
 
-    // Event listener for the Telegram button
-    telegramButton.addEventListener('click', function (event) {
-      event.preventDefault();
-      isTelegramClicked = true;
-      window.open('https://t.me/nhoy200', '_blank');
-      checkProgress();
-    });
+                progressBar.style.width = `${progressPercentage}%`;
+                progressLabel.textContent = `${progressPercentage}%`;
 
-    // Function to check if both actions are completed
-    function checkProgress() {
-      if (isYouTubeClicked && isTelegramClicked) {
-        let progress = 0;
-        const interval = setInterval(() => {
-          progress += 2;
-          progressBar.style.width = progress + '%';
-          progressBar.setAttribute('aria-valuenow', progress);
+                if (progressPercentage === 100) {
+                    downloadBtn.classList.add('active');
+                    downloadBtn.removeAttribute('disabled');
+                }
+            }
 
-          if (progress >= 100) {
-            clearInterval(interval);
-            unlockButton.disabled = false;
-            unlockButton.classList.add('enabled');
-            unlockButton.textContent = 'free 1day';
-          }
-        }, 100);
-      }
-    }
+            telegramBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open(telegramBtn.href, '_blank');
+                progress.telegram = true;
+                updateProgress();
+            });
 
-    // Event listener for the Unlock button
-    unlockButton.addEventListener('click', function () {
-      if (!this.disabled) {
-        window.location.href = 'https://api.khoindvn.eu.org/y8PvzI'; // Replace with your desired URL
-      }
-    });
-  </script>
+            youtubeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open(youtubeBtn.href, '_blank');
+                progress.youtube = true;
+                updateProgress();
+            });
+
+            downloadBtn.addEventListener('click', () => {
+                if (downloadBtn.classList.contains('active')) {
+                    window.location.href = 'https://api.khoindvn.eu.org/y8PvzI';
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
